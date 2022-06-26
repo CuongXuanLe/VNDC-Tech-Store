@@ -4,11 +4,12 @@
   "description": "php bootstrap spl jquery ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sass ./sass/style.scss styleWeb.css --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git"
+    "url": "git+https://github.com/CuongXuanLe/finall-project.git"
   },
   "author": "VNDC",
   "license": "ISC",
