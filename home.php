@@ -46,6 +46,11 @@ if(isset($_POST['add_to_cart'])){
    <!-- Bootstrap CDN -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+   <!-- Owl-carousel CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+   
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="css/styleWeb.css">
 
@@ -55,32 +60,46 @@ if(isset($_POST['add_to_cart'])){
    
 <?php include 'header.php'; ?>
 
-<section class="home">
+<section class="header__tittle">
 
-   <div class="content">
-      <h3>Hand Picked Book to your door.</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quod? Reiciendis ut porro iste totam.</p>
-      <a href="about.php" class="white-btn">discover more</a>
+   <div style="
+      background-color: rgba(0, 0, 0, 0.3); 
+      height: 80vh;
+      background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+         <div class="text-white text-center">
+            <h1>Welcome to our Website !</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quod? Reiciendis ut porro iste totam.</p>
+            <a href="about.php" class="btn btn-primary font-rubik">Discover more</a>
+         </div>
+      </div>
+   </div>
+
+   <div class="bg-image p-2 text-center shadow-1-strong rounded mb-5 text-white">
+      
    </div>
 
 </section>
 
 <section class="products">
 
-   <h1 class="title">latest products</h1>
+   <h1 class="text-center font-rubik pb-5 font-weight-bold text-uppercase">latest products</h1>
 
-   <div class="box-container">
+   <div class="container d-flex justify-content-center mb-5">
 
       <?php  
          $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-     <form action="" method="post" class="box">
-      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-      <div class="name"><?php echo $fetch_products['name']; ?></div>
-      <div class="price">$<?php echo $fetch_products['price']; ?></div>
-      <input type="number" min="1" name="product_quantity" value="1" class="qty">
+     <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
+      <img class="image-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+      <div class="name font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
+      <div class="price font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
+      <input type="number" min="1" name="product_quantity" value="1" class=" px-2 py-2 border rounded border-dark mb-3">
       <?php
          $item_id = $fetch_products['id'];
          $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
@@ -90,9 +109,10 @@ if(isset($_POST['add_to_cart'])){
             $option3 = $fetch_options['option_three'];
          }
       ?>
-      <div class="form-control">    
+      <div class="row d-flex flex-wrap justify-content-center">
+         <p class="my-auto mr-4 font-weight-bold">Color:</p>
             <!-- Dropdown options -->
-            <select name="product_option" id="product_option">
+            <select name="product_option" id="product_option" class="px-3 py-2">
                 <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
                 <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
                 <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
@@ -101,7 +121,7 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-      <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+      <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
      </form>
       <?php
          }
@@ -112,23 +132,30 @@ if(isset($_POST['add_to_cart'])){
    </div>
 
    <div class="load-more" style="margin-top: 2rem; text-align:center">
-      <a href="shop.php" class="option-btn">load more</a>
+      <a href="shop.php" class="btn btn-secondary text-capitalize font-weight-bolder text-white shadow">load more</a>
    </div>
 
 </section>
 
 <section class="about">
 
-   <div class="flex">
+   <div class="container p-0 d-flex my-5 align-items-center shadow">
 
-      <div class="image">
-         <img src="images/about-img.jpg" alt="">
+      <div class="bg-image d-flex justify-content-center align-items-center hover-overlay ripple rounded"
+         style="
+            background-image: url('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/bts-header-giftcard-202206?wid=1120');
+            height: 50vh;
+            width: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            ">
       </div>
 
-      <div class="content">
-         <h3>about us</h3>
+      <div class="p-5">
+         <h2 class="text-center font-rubik pb-3 font-weight-bold text-uppercase">about us</h3>
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
-         <a href="about.php" class="btn">read more</a>
+         <a href="about.php" class="btn btn-secondary text-capitalize font-rubik">read more <i class="fa-solid fa-arrow-right"></i> </a>
       </div>
 
    </div>
@@ -136,11 +163,12 @@ if(isset($_POST['add_to_cart'])){
 </section>
 
 <section class="home-contact">
-
-   <div class="content">
-      <h3>have any questions?</h3>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque cumque exercitationem repellendus, amet ullam voluptatibus?</p>
-      <a href="contact.php" class="white-btn">contact us</a>
+   <div class="container py-5">
+      <h3 class="text-center text-capitalize font-weight-bold">have any questions?</h3>
+      <div class="d-flex-col text-center">
+         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque cumque exercitationem repellendus, amet ullam voluptatibus?</p>
+         <a href="contact.php" class="btn btn-secondary text-capitalize font-rubik">contact us <i class="fa-solid fa-comment pl-1"></i></a>
+      </div>
    </div>
 
 </section>
@@ -150,6 +178,9 @@ if(isset($_POST['add_to_cart'])){
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Owl Carousel Js file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>

@@ -25,12 +25,12 @@ if(isset($message)){
          </nav>
 
          <div class="d-flex align-items-center">
-            <a href="search_page.php" class="fas fa-search mr-3 text-dark"></a>
+            <a href="search_page.php" class="fas fa-search mr-3 text-dark text-decoration-none"></a>
             
             <!-- toggle menu use -->
             <div class="dropdown">
                <div id="user-btn" class="fas fa-user mr-3" data-toggle="dropdown">
-                  <div class="dropdown-menu p-0 w-auto " style="left:-185px; width:200px">
+                  <div class="dropdown-menu p-0 w-auto" style="left:-185px;">
                      <p class="px-3 pt-3">username : <span class="color-primary font-size-16"><?php echo $_SESSION['user_name']; ?></span></p>
                      <p class="px-3" style="margin-top:-10px;">email : <span class="color-primary font-size-16"><?php echo $_SESSION['user_email']; ?></span></p>
                      <hr class="dropdown-divider p-0">
