@@ -33,10 +33,7 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>orders</title>
-
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <title>Orders</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -45,7 +42,7 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="css/styleWeb.css">
 
 </head>
 <body>
@@ -54,9 +51,9 @@ if(isset($_GET['delete'])){
 
 <section class="orders">
 
-   <h1 class="title">orders summary</h1>
+   <h1 class="text-center text-capitalize font-weight-bold py-5">orders summary</h1>
 
-   <div class="box-container">
+   <div class="container">
       <?php
       $select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
       if(mysqli_num_rows($select_orders) > 0){
@@ -87,21 +84,16 @@ if(isset($_GET['delete'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no orders placed yet!</p>';
+         echo '<p class="w-50 border rounded border-danger py-3 px-1 font-rubik font-size-20 text-capitalize  text-center m-auto">no orders placed yet!</p>';
       }
       ?>
    </div>
 
 </section>
 
-
-
-
-
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <!-- custom admin js file link  -->
 <script src="js/admin_script.js"></script>
