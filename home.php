@@ -16,13 +16,15 @@ if(isset($_POST['add_to_cart'])){
    $product_price = $_POST['product_price'];
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
+   $product_option = $_POST['product_option'];
+   $product_nameWithOption = $_POST['product_name'] . ' - ' . $product_option;
 
    $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
    if(mysqli_num_rows($check_cart_numbers) > 0){
       $message[] = 'already added to cart!';
    }else{
-      mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
+      mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image, nameWithOption) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image', '$product_nameWithOption')") or die('query failed');
       $message[] = 'product added to cart!';
    }
 
@@ -75,6 +77,23 @@ if(isset($_POST['add_to_cart'])){
       <div class="name"><?php echo $fetch_products['name']; ?></div>
       <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
+      <?php
+         $item_id = $fetch_products['id'];
+         $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
+         while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
+            $option1 = $fetch_options['option_one'];
+            $option2 = $fetch_options['option_two'];
+            $option3 = $fetch_options['option_three'];
+         }
+      ?>
+      <div class="form-control">    
+            <!-- Dropdown options -->
+            <select name="product_option" id="product_option">
+                <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
+                <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
+                <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
+            </select>
+        </div>
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
