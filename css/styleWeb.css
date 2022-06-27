@@ -36,11 +36,11 @@
 }
 
 .color-second {
-  color: #c0392b;
+  color: #a1a1a1;
 }
 
 .color-second-bg {
-  background: #c0392b;
+  background: #a1a1a1;
 }
 
 .color-orange {
@@ -61,6 +61,10 @@
 
 .color-black {
   color: #333;
+}
+
+.color-black-bg{
+  background: #333;
 }
 
 /*# sourceMappingURL=styleWeb.css.map */
