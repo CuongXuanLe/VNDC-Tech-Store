@@ -33,7 +33,8 @@ CREATE TABLE `cart` (
   `name` varchar(100) NOT NULL,
   `price` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(100) NOT NULL,
+  `nameWithOption`varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -61,6 +62,7 @@ CREATE TABLE `orders` (
   `id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `nameWithOption`varchar(100) NOT NULL,
   `number` varchar(12) NOT NULL,
   `email` varchar(100) NOT NULL,
   `method` varchar(50) NOT NULL,
@@ -68,7 +70,8 @@ CREATE TABLE `orders` (
   `total_products` varchar(1000) NOT NULL,
   `total_price` int(100) NOT NULL,
   `placed_on` varchar(50) NOT NULL,
-  `payment_status` varchar(20) NOT NULL DEFAULT 'pending'
+  `payment_status` varchar(20) NOT NULL DEFAULT 'pending',
+  `order_id` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -81,7 +84,21 @@ CREATE TABLE `products` (
   `id` int(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `price` int(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(100) NOT NULL,
+  `sold` int(100) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product options`
+--
+
+CREATE TABLE `product_opts` (
+  `product_id` int(100) NOT NULL PRIMARY KEY,
+  `option_one` varchar(100) NOT NULL,
+  `option_two` varchar(100) NOT NULL,
+  `option_three` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -159,6 +176,9 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `product_opts`
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

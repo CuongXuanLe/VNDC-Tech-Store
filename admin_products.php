@@ -18,6 +18,9 @@ if(isset($_POST['add_product'])){
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = 'uploaded_img/'.$image;
+   $option1 = $_POST['option1'];
+   $option2 = $_POST['option2'];
+   $option3 = $_POST['option3'];
 
    $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$name'") or die('query failed');
 
@@ -25,6 +28,16 @@ if(isset($_POST['add_product'])){
       $message[] = 'product name already added';
    }else{
       $add_product_query = mysqli_query($conn, "INSERT INTO `products`(name, price, image) VALUES('$name', '$price', '$image')") or die('query failed');
+      //get product id from products
+      $select_product_id_query = mysqli_query($conn, "SELECT `id` FROM products where name= '$name'") or die('query failed');
+
+      while($row = $select_product_id_query->fetch_assoc()){
+         $myArray['id'] = $row['id'];
+      }
+      $prod_id = $myArray['id'];
+
+      //add product id to product option table
+      $add_product_option_query = mysqli_query($conn, "INSERT INTO `product_opts`(product_id, option_one, option_two, option_three) VALUES('$prod_id', '$option1','$option2','$option3')") or die('query failed');
 
       if($add_product_query){
          if($image_size > 2000000){
@@ -32,6 +45,7 @@ if(isset($_POST['add_product'])){
          }else{
             move_uploaded_file($image_tmp_name, $image_folder);
             $message[] = 'product added successfully!';
+            // echo json_encode($select_product_id_query);
          }
       }else{
          $message[] = 'product could not be added!';
@@ -44,7 +58,8 @@ if(isset($_GET['delete'])){
    $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    unlink('uploaded_img/'.$fetch_delete_image['image']);
-   mysqli_query($conn, "DELETE FROM `products` WHERE id = '$delete_id'") or die('query failed');
+   mysqli_query($conn, "DELETE FROM `products` WHERE id = '$delete_id'") or die('query failed hehe');
+   mysqli_query($conn, "DELETE FROM `product_opts` WHERE product_id = '$delete_id'") or die('query failed hehe');
    header('location:admin_products.php');
 }
 
@@ -101,13 +116,16 @@ if(isset($_POST['update_product'])){
 
 <section class="add-products">
 
-   <h1 class="title">shop products</h1>
+   <h1 class="title">products summary</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
       <h3>add product</h3>
       <input type="text" name="name" class="box" placeholder="enter product name" required>
       <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
       <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
+      <input type="text" name="option1" class="box" placeholder="enter option 1" required>
+      <input type="text" name="option2" class="box" placeholder="enter option 2">
+      <input type="text" name="option3" class="box" placeholder="enter option 3">
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>
 
@@ -127,9 +145,10 @@ if(isset($_POST['update_product'])){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
       <div class="box">
-         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" style="width: 200px; height: 150px;" >
          <div class="name"><?php echo $fetch_products['name']; ?></div>
          <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+         <div class="name"><?php echo $fetch_products['sold']; ?> units sold</div>
          <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
          <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
@@ -149,6 +168,12 @@ if(isset($_POST['update_product'])){
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
          $update_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = '$update_id'") or die('query failed');
+         $update_option_query = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$update_id'") or die('query failed hehe');
+         while($row = $update_option_query->fetch_assoc()){
+            $myArray['option_one'] = $row['option_one'];
+            $myArray['option_two'] = $row['option_two'];
+            $myArray['option_three'] = $row['option_three'];
+         }
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
@@ -159,6 +184,7 @@ if(isset($_POST['update_product'])){
       <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
       <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
+      <input type="text" name="update_name" value="options : <?php echo $myArray['option_one']; ?> , <?php echo $myArray['option_two']; ?> , <?php echo $myArray['option_three']; ?> " class="box" disabled>
       <input type="submit" value="update" name="update_product" class="btn">
       <input type="reset" value="cancel" id="close-update" class="option-btn">
    </form>
