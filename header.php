@@ -13,7 +13,7 @@ if(isset($message)){
 
 <header class="header">
 
-   <div class="header-1">
+   <!-- <div class="header-1">
       <div class="flex">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
@@ -23,7 +23,7 @@ if(isset($message)){
          </div>
          <p> new <a href="login.php">login</a> | <a href="register.php">register</a> </p>
       </div>
-   </div>
+   </div> -->
 
    <div class="header-2">
       <div class="flex">
