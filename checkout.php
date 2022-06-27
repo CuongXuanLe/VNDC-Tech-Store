@@ -18,20 +18,31 @@ if(isset($_POST['order_btn'])){
    $method = mysqli_real_escape_string($conn, $_POST['method']);
    $address = mysqli_real_escape_string($conn, 'flat no. '. $_POST['flat'].', '. $_POST['street'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
    $placed_on = date('d-M-Y');
+   $order_id = md5($placed_on . $name);
 
    $cart_total = 0;
    $cart_products[] = '';
+   
 
    $cart_query = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
    if(mysqli_num_rows($cart_query) > 0){
       while($cart_item = mysqli_fetch_assoc($cart_query)){
-         $cart_products[] = $cart_item['name'].' ('.$cart_item['quantity'].') ';
+         $cart_products[] = $cart_item['nameWithOption'].' ('.$cart_item['quantity'].') ';
+         $item_name = $cart_item['name'];
+         $item_quantity = $cart_item['quantity'];
+         $sold_query = mysqli_query($conn, "SELECT sold FROM `products` WHERE name = '$item_name'") or die('query failed');
          $sub_total = ($cart_item['price'] * $cart_item['quantity']);
          $cart_total += $sub_total;
+         while ($item_sold = mysqli_fetch_assoc($sold_query)) {
+            $sold_amount = $item_sold['sold'];
+         }
+         $sold_amount += $cart_item['quantity'];
+         mysqli_query($conn, "UPDATE `products` SET sold = '$sold_amount' WHERE name = '$item_name'");
+         // mysqli_query($conn, "UPDATE `products` SET sold = ")
       }
    }
 
-   $total_products = implode(', ',$cart_products);
+   $total_products = implode(', ',array_slice($cart_products,1));
 
    $order_query = mysqli_query($conn, "SELECT * FROM `orders` WHERE name = '$name' AND number = '$number' AND email = '$email' AND method = '$method' AND address = '$address' AND total_products = '$total_products' AND total_price = '$cart_total'") or die('query failed');
 
@@ -41,7 +52,7 @@ if(isset($_POST['order_btn'])){
       if(mysqli_num_rows($order_query) > 0){
          $message[] = 'order already placed!'; 
       }else{
-         mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on')") or die('query failed');
+         mysqli_query($conn, "INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, placed_on, order_id) VALUES('$user_id', '$name', '$number', '$email', '$method', '$address', '$total_products', '$cart_total', '$placed_on', '$order_id')") or die('query failed');
          $message[] = 'order placed successfully!';
          mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
       }
@@ -85,7 +96,7 @@ if(isset($_POST['order_btn'])){
             $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
             $grand_total += $total_price;
    ?>
-   <p> <?php echo $fetch_cart['name']; ?> <span>(<?php echo '$'.$fetch_cart['price'].'/-'.' x '. $fetch_cart['quantity']; ?>)</span> </p>
+   <p> <?php echo $fetch_cart['nameWithOption']; ?> <span>(<?php echo '$'.$fetch_cart['price'].'/-'.' x '. $fetch_cart['quantity']; ?>)</span> </p>
    <?php
       }
    }else{
@@ -99,22 +110,22 @@ if(isset($_POST['order_btn'])){
 <section class="checkout">
 
    <form action="" method="post">
-      <h3>place your order</h3>
+      <h3>Place your order</h3>
       <div class="flex">
          <div class="inputBox">
-            <span>your name :</span>
+            <span>Your Name :</span>
             <input type="text" name="name" required placeholder="enter your name">
          </div>
          <div class="inputBox">
-            <span>your number :</span>
+            <span>Your Number :</span>
             <input type="number" name="number" required placeholder="enter your number">
          </div>
          <div class="inputBox">
-            <span>your email :</span>
+            <span>Your Email :</span>
             <input type="email" name="email" required placeholder="enter your email">
          </div>
          <div class="inputBox">
-            <span>payment method :</span>
+            <span>Payment Method :</span>
             <select name="method">
                <option value="cash on delivery">cash on delivery</option>
                <option value="credit card">credit card</option>
@@ -123,23 +134,23 @@ if(isset($_POST['order_btn'])){
             </select>
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
+            <span>Flat/House Number :</span>
             <input type="number" min="0" name="flat" required placeholder="e.g. flat no.">
          </div>
          <div class="inputBox">
-            <span>address line 01 :</span>
+            <span>Street Name :</span>
             <input type="text" name="street" required placeholder="e.g. street name">
          </div>
          <div class="inputBox">
-            <span>city :</span>
+            <span>City :</span>
             <input type="text" name="city" required placeholder="e.g. mumbai">
          </div>
          <div class="inputBox">
-            <span>state :</span>
+            <span>State :</span>
             <input type="text" name="state" required placeholder="e.g. maharashtra">
          </div>
          <div class="inputBox">
-            <span>country :</span>
+            <span>Country :</span>
             <input type="text" name="country" required placeholder="e.g. india">
          </div>
          <div class="inputBox">

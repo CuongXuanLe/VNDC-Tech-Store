@@ -16,13 +16,15 @@ if(isset($_POST['add_to_cart'])){
    $product_price = $_POST['product_price'];
    $product_image = $_POST['product_image'];
    $product_quantity = $_POST['product_quantity'];
+   $product_option = $_POST['product_option'];
+   $product_nameWithOption = $_POST['product_name'] . ' - ' . $product_option;
 
    $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
 
    if(mysqli_num_rows($check_cart_numbers) > 0){
       $message[] = 'already added to cart!';
    }else{
-      mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
+      mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image, nameWithOption) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image', '$product_nameWithOption')") or die('query failed');
       $message[] = 'product added to cart!';
    }
 
@@ -44,47 +46,20 @@ if(isset($_POST['add_to_cart'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
-   <!-- Bootstrap -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 </head>
-<body class="position-relative">
+<body>
    
 <?php include 'header.php'; ?>
 
-<div class="home-banner w-100">
+<section class="home">
 
-   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-   <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+   <div class="content">
+      <h3>Hand Picked Book to your door.</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quod? Reiciendis ut porro iste totam.</p>
+      <a href="about.php" class="white-btn">discover more</a>
    </div>
-   <div class="carousel-inner">
-      <div class="carousel-item active">
-         <img src="images/banner-1.jpg" class="d-block w-100" alt="banner1">
-      </div>
-      <div class="carousel-item">
-         <img src="images/banner-1.jpg" class="d-block w-100" alt="banner2">
-      </div>
-      <div class="carousel-item">
-         <img src="images/banner-1.jpg" class="d-block w-100" alt="banner3">
-      </div>
-   </div>
-   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-   </button>
-   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-   </button>
-   </div>   
 
-</div>
-<div class="home-subbanner vw-100">
-   <img src="images/subbanner.png" class="vw-100 img-fluid" alt="">
-</div>
+</section>
 
 <section class="products">
 
@@ -97,11 +72,28 @@ if(isset($_POST['add_to_cart'])){
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-     <form action="" method="post" class="box overflow-hidden">
-      <img class="image" src="<?php echo $fetch_products['image']; ?>" alt="">
+     <form action="" method="post" class="box">
+      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
       <div class="name"><?php echo $fetch_products['name']; ?></div>
       <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
+      <?php
+         $item_id = $fetch_products['id'];
+         $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
+         while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
+            $option1 = $fetch_options['option_one'];
+            $option2 = $fetch_options['option_two'];
+            $option3 = $fetch_options['option_three'];
+         }
+      ?>
+      <div class="form-control">    
+            <!-- Dropdown options -->
+            <select name="product_option" id="product_option">
+                <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
+                <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
+                <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
+            </select>
+        </div>
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
@@ -157,9 +149,6 @@ if(isset($_POST['add_to_cart'])){
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>
