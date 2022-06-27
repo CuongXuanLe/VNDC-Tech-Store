@@ -38,13 +38,17 @@ if(isset($_POST['add_to_cart'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
+   <title>Home</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <!-- Bootstrap CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="css/styleWeb.css">
+
 
 </head>
 <body>
@@ -75,7 +79,7 @@ if(isset($_POST['add_to_cart'])){
      <form action="" method="post" class="box">
       <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
       <div class="name"><?php echo $fetch_products['name']; ?></div>
-      <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+      <div class="price">$<?php echo $fetch_products['price']; ?></div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
       <?php
          $item_id = $fetch_products['id'];
@@ -141,11 +145,11 @@ if(isset($_POST['add_to_cart'])){
 
 </section>
 
-
-
-
-
 <?php include 'footer.php'; ?>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>

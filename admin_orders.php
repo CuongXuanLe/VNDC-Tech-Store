@@ -60,28 +60,30 @@ if(isset($_GET['delete'])){
          while($fetch_orders = mysqli_fetch_assoc($select_orders)){
       ?>
       <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-4 font-rubik position-static shadow">
-         <p class="font-weight-bold"> Order ID : <span class="font-weight-normal"><?php echo $fetch_orders['order_id']; ?></span> </p>
-         <p class="font-weight-bold"> User ID : <span class="font-weight-normal"><?php echo $fetch_orders['user_id']; ?></span> </p>
-         <p class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
-         <p class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
-         <p class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
-         <p class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
-         <p class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
-         <p class="font-weight-bold text-warp"> Total products : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-         <p class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
-         <p class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
+         <div class="h-100">
+            <p class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
+            <p class="font-weight-bold"> User ID : <span class="font-weight-normal"><?php echo $fetch_orders['user_id']; ?></span> </p>
+            <p class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
+            <p class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
+            <p class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
+            <p class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
+            <p class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
+            <p class="font-weight-bold text-warp"> Total products : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
+            <p class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+            <p class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
+         </div>
          <form action="" method="post" class="col d-flex d-flex flex-wrap justify-content-center justify-content-center">
             <div class="row w-100 m-auto d-flex justify-content-center">
                <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
-               <select name="update_payment" class="p-2 mb-2 text-center border rounded border-dark">
+               <select name="update_payment" class="px-5 py-2 mb-2 text-center border rounded border-dark">
                   <option value="" selected disabled>Status: <?php echo $fetch_orders['payment_status']; ?></option>
                   <option value="pending">Changed: pending</option>
                   <option value="completed">Changed: completed</option>
                </select>
             </div>
             <div class="row d-flex justify-content-center text-center">
-               <input type="submit" value="Update" name="update_order" class="btn btn-warning px-3 mx-2 font-weight-bold">
-               <button class="px-3 btn btn-danger mx-2 font-weight-semibold "><a class="text-white text-decoration-none" href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('delete this order?');" >Delete</a></button>
+               <input type="submit" value="Update" name="update_order" class="btn btn-warning px-5 mx-2 font-weight-bold">
+               <button class="px-5 btn btn-danger mx-2 font-weight-semibold "><a class="text-white text-decoration-none" href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('delete this order?');" >Delete</a></button>
             </div>   
          </form>
       </div>

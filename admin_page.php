@@ -28,7 +28,7 @@ if(!isset($admin_id)){
 
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="css/styleWeb.css">
-   <!-- <link rel="stylesheet" href="css/admin_style.css"> -->
+   
 
 </head>
 <body>

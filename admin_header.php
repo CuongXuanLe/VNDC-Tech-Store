@@ -26,9 +26,7 @@ if(isset($message)){
       </nav>
 
       <div class="dropdown">
-         <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
          <div id="user-btn" class="fas fa-user" data-toggle="dropdown"></div>
-
          <div class="dropdown-menu p-0 w-auto" style="left:-185px; width:200px">
                <p class="px-3 pt-3">Username : <span class="color-primary font-size-16"><?php echo $_SESSION['admin_name']; ?></span></p>
                <p class="px-3" style="margin-top:-10px;">Email : <span class="color-primary font-size-16"><?php echo $_SESSION['admin_email']; ?></span></p>
