@@ -13,40 +13,37 @@ if(isset($message)){
 
 <header class="header fixed-top navbar bg-white shadow py-3 px-3 position-static">
 
-   <div class="header-2">
       <div class="container">
          <a href="home.php" class="text-decoration-none font-rubik font-size-20 text-dark font-weight-bold">VNDC Tech</a>
 
          <nav class="navbar">
-            <a href="home.php" class="text-decoration-none" >home</a>
-            <a href="about.php" class="text-decoration-none" >about</a>
-            <a href="shop.php" class="text-decoration-none" >shop</a>
-            <a href="contact.php" class="text-decoration-none" >contact</a>
-            <a href="orders.php" class="text-decoration-none" >orders</a>
+            <a href="home.php" class="px-4 text-decoration-none text-dark font-rubik text-uppercase font-weight-bold" >home</a>
+            <a href="about.php" class="px-4 text-decoration-none text-dark font-rubik text-uppercase font-weight-bold" >about</a>
+            <a href="shop.php" class="px-4 text-decoration-none text-dark font-rubik text-uppercase font-weight-bold" >shop</a>
+            <a href="contact.php" class="px-4 text-decoration-none text-dark font-rubik text-uppercase font-weight-bold" >contact</a>
+            <a href="orders.php" class="px-4 text-decoration-none text-dark font-rubik text-uppercase font-weight-bold" >orders</a>
          </nav>
 
-         <div class="icons">
-            <a href="search_page.php" class="fas fa-search"></a>
+         <div class="d-flex align-items-center">
+            <a href="search_page.php" class="fas fa-search mr-3 text-dark"></a>
+            
+            <!-- toggle menu use -->
             <div class="dropdown">
-               <div id="user-btn" class="fas fa-user" data-toggle="dropdown">
-
-               <!-- toggle menu use -->
-               <div class="user-box">
-                  <p>username : <span><?php echo $_SESSION['user_name']; ?></span></p>
-                  <p>email : <span><?php echo $_SESSION['user_email']; ?></span></p>
-                  <a href="logout.php" class="delete-btn">logout</a>
+               <div id="user-btn" class="fas fa-user mr-3" data-toggle="dropdown">
+                  <div class="dropdown-menu p-0 w-auto " style="left:-185px; width:200px">
+                     <p class="px-3 pt-3">username : <span class="color-primary font-size-16"><?php echo $_SESSION['user_name']; ?></span></p>
+                     <p class="px-3" style="margin-top:-10px;">email : <span class="color-primary font-size-16"><?php echo $_SESSION['user_email']; ?></span></p>
+                     <hr class="dropdown-divider p-0">
+                     <p class="p-0 text-center font-weight-bold"><a href="logout.php" class="delete-btn text-danger text-decoration-none" >Logout</a></p>
+                  </div>
                </div>
-            </div>
-
-
             </div>
             <?php
                $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
                $cart_rows_number = mysqli_num_rows($select_cart_number); 
             ?>
-            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
+            <a class="text-decoration-none" href="cart.php"> <i class="fas fa-shopping-cart text-dark"></i> <span class="text-dark">(<?php echo $cart_rows_number; ?>)</span> </a>
          </div>
-      </div>
    </div>
 
 </header>
