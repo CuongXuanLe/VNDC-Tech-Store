@@ -54,7 +54,7 @@ if(!isset($admin_id)){
                   };
                };
             ?>
-            <h3 class="font-rubik font-weight-bold">$<?php echo $total_pendings; ?>/-</h3>
+            <h3 class="font-rubik font-weight-bold">$<?php echo $total_pendings; ?></h3>
             <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">total pendings</p>
          </div>
 
@@ -69,7 +69,7 @@ if(!isset($admin_id)){
                   };
                };
             ?>
-            <h3 class="font-rubik font-weight-bold">$<?php echo $total_completed; ?>/-</h3>
+            <h3 class="font-rubik font-weight-bold">$<?php echo $total_completed; ?></h3>
             <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">completed payments</p>
          </div>
 

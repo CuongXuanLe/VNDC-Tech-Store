@@ -104,8 +104,11 @@ if(isset($_POST['update_product'])){
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+   <!-- Bootstrap CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="css/admin_style.css">
+   <link rel="stylesheet" href="css/styleWeb.css">
 
 </head>
 <body>
@@ -116,18 +119,19 @@ if(isset($_POST['update_product'])){
 
 <section class="add-products">
 
-   <h1 class="title">products summary</h1>
-
-   <form action="" method="post" enctype="multipart/form-data">
-      <h3>add product</h3>
-      <input type="text" name="name" class="box" placeholder="enter product name" required>
-      <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
-      <input type="text" name="option1" class="box" placeholder="enter option 1" required>
-      <input type="text" name="option2" class="box" placeholder="enter option 2">
-      <input type="text" name="option3" class="box" placeholder="enter option 3">
-      <input type="submit" value="add product" name="add_product" class="btn">
-   </form>
+   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products summary</h1>
+   <div class="container d-flex justify-content-center mb-5">
+      <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-50 p-4 font-rubik border rounded border-dark shadow">
+         <h3 class="text-uppercase text-center font-weight-bold mb-4">add product</h3>
+         <input type="text" name="name" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter product name" required>
+         <input type="number" min="0" name="price" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter product price" required>
+         <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="px-2 py-2 border rounded border-dark mb-3" required>
+         <input type="text" name="option1" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter option 1" required>
+         <input type="text" name="option2" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter option 2">
+         <input type="text" name="option3" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter option 3">
+         <input type="submit" value="add product" name="add_product" class="btn btn-primary px-2 py-1 text-capitalize">
+      </form>
+   </div>
 
 </section>
 
@@ -137,20 +141,22 @@ if(isset($_POST['update_product'])){
 
 <section class="show-products">
 
-   <div class="box-container">
+   <div class="container d-flex flex-wrap justify-content-center">
 
       <?php
          $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-      <div class="box">
-         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" style="width: 200px; height: 150px;" >
-         <div class="name"><?php echo $fetch_products['name']; ?></div>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-         <div class="name"><?php echo $fetch_products['sold']; ?> units sold</div>
-         <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+      <div class="card col-lg-2 py-3 border rounded border-dark m-2 font-rubik shadow">
+         <img class="img-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+         <div class="name text-capitalize"><?php echo $fetch_products['name']; ?></div>
+         <div class="price">$<?php echo $fetch_products['price']; ?></div>
+         <div class="name text-capitalize"><?php echo $fetch_products['sold']; ?> units sold</div>
+         <div class="row d-flex flex-wrap justify-content-center">
+            <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="col-md-5 btn btn-primary m-1 p-0 text-capitalize">update</a>
+            <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="col-md-5 btn btn-danger m-1 p-0 text-capitalize" onclick="return confirm('delete this product?');">delete</a>
+         </div>
       </div>
       <?php
          }
@@ -163,46 +169,49 @@ if(isset($_POST['update_product'])){
 </section>
 
 <section class="edit-product-form">
-
-   <?php
-      if(isset($_GET['update'])){
-         $update_id = $_GET['update'];
-         $update_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = '$update_id'") or die('query failed');
-         $update_option_query = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$update_id'") or die('query failed hehe');
-         while($row = $update_option_query->fetch_assoc()){
-            $myArray['option_one'] = $row['option_one'];
-            $myArray['option_two'] = $row['option_two'];
-            $myArray['option_three'] = $row['option_three'];
+   <div class="container d-flex flex-wrap justify-content-center mt-3">
+      <?php
+         if(isset($_GET['update'])){
+            $update_id = $_GET['update'];
+            $update_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = '$update_id'") or die('query failed');
+            $update_option_query = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$update_id'") or die('query failed hehe');
+            while($row = $update_option_query->fetch_assoc()){
+               $myArray['option_one'] = $row['option_one'];
+               $myArray['option_two'] = $row['option_two'];
+               $myArray['option_three'] = $row['option_three'];
+            }
+            if(mysqli_num_rows($update_query) > 0){
+               while($fetch_update = mysqli_fetch_assoc($update_query)){
+      ?>
+      
+      <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow">
+         <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
+         <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
+         <img class="img-fluid" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+         <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="px-2 py-2 border rounded border-dark mb-2 text-capitalize" required placeholder="enter product name">
+         <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="px-2 py-2 border rounded border-dark mb-2" required placeholder="enter product price">
+         <input type="file" class="px-2 py-2 border rounded border-dark mb-2" name="update_image" accept="image/jpg, image/jpeg, image/png">
+         <input type="text" name="update_name" value="options : <?php echo $myArray['option_one']; ?> , <?php echo $myArray['option_two']; ?> , <?php echo $myArray['option_three']; ?> " class="px-2 py-2 border rounded border-dark mb-2" disabled>
+         <div class="row d-flex flex-wrap justify-content-center">
+            <input type="submit" value="update" name="update_product" class="col-md-5 btn btn-primary m-1 p-2 text-capitalize">
+            <input type="reset" value="cancel" id="close-update" class="col-md-5 btn btn-light m-1 py-1 text-capitalize">
+         </div>
+      </form>
+   
+      <?php
+            }
          }
-         if(mysqli_num_rows($update_query) > 0){
-            while($fetch_update = mysqli_fetch_assoc($update_query)){
-   ?>
-   <form action="" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
-      <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
-      <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
-      <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
-      <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
-      <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-      <input type="text" name="update_name" value="options : <?php echo $myArray['option_one']; ?> , <?php echo $myArray['option_two']; ?> , <?php echo $myArray['option_three']; ?> " class="box" disabled>
-      <input type="submit" value="update" name="update_product" class="btn">
-      <input type="reset" value="cancel" id="close-update" class="option-btn">
-   </form>
-   <?php
+         }else{
+            echo '<script>document.querySelector(".edit-product-form").style.display = "none";</script>';
          }
-      }
-      }else{
-         echo '<script>document.querySelector(".edit-product-form").style.display = "none";</script>';
-      }
-   ?>
+      ?>
+   </div>
 
 </section>
 
-
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <!-- custom admin js file link  -->
 <script src="js/admin_script.js"></script>
