@@ -82,6 +82,9 @@ if(isset($_POST['add_to_cart'])){
    </div>   
 
 </div>
+<div class="home-subbanner vw-100">
+   <img src="images/subbanner.png" class="vw-100 img-fluid" alt="">
+</div>
 
 <section class="products">
 
@@ -94,8 +97,8 @@ if(isset($_POST['add_to_cart'])){
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-     <form action="" method="post" class="box">
-      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+     <form action="" method="post" class="box overflow-hidden">
+      <img class="image" src="<?php echo $fetch_products['image']; ?>" alt="">
       <div class="name"><?php echo $fetch_products['name']; ?></div>
       <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
       <input type="number" min="1" name="product_quantity" value="1" class="qty">
