@@ -68,7 +68,23 @@ if(isset($message)){
 }
 ?>
    
-<div class="form-container">
+
+<div id="login-form" class="container-fluid">
+   <div class="row h-100">
+      <div class="col h-75 p-0">
+         <img src="images/login.png" alt="" class="img-fluid ">
+      </div>
+      <div class="col d-flex justify-content-center align-items-center">
+         <form action="" method="post" class="card shadow-lg w-75 p-3 border border-dark">
+            <h3 class="m-auto pb-4 font-rubik fw-bold">LOGIN NOW</h2>
+            <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+            <input type="password" name="password" placeholder="enter your password" required class="box mx-4 mb-3 p-2 border rounded border-dark">
+            <input type="submit" name="submit" value="Login" class="font-baloo btn btn-dark w-25 m-auto  color-white">
+            <p class="mx-auto pt-3 font-rale">Don't have an account? <a href="register.php" class="text-decoration-none">register now</a></p>
+         </form>
+      </div>
+   </div>
+</div>
 
    <form action="" method="post">
       <h3>login now</h3>

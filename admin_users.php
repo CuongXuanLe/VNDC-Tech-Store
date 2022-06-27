@@ -61,13 +61,6 @@ if(isset($_GET['delete'])){
 </section>
 
 
-
-
-
-
-
-
-
 <!-- custom admin js file link  -->
 <script src="js/admin_script.js"></script>
 
