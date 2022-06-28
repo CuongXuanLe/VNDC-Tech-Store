@@ -41,71 +41,91 @@ if(isset($_GET['delete_all'])){
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <!-- Bootstrap CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <!-- Owl-carousel CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+   
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="css/styleWeb.css">
 
 </head>
 <body>
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>shopping cart</h3>
-   <p> <a href="home.php">home</a> / cart </p>
-</div>
+<section class="heading">
+   <div style="
+   background-color: rgba(0, 0, 0, 0.3);
+   height: 70vh;
+   background-image: url('https://images.unsplash.com/photo-1578258789061-354f25c13631');
+   background-repeat: no-repeat;
+   
+   background-size: cover;
+   background-position: center center;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+         <div class="text-center font-weight-bold font-rubik">
+            <p class="text-uppercase text-white" style="font-size: 3.5rem;">shopping cart</p>
+            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> cart </h4>
+         </div>
+      </div>
+   <div>
+</section>
 
 <section class="shopping-cart">
 
-   <h1 class="title">products added</h1>
+   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products added</h1>
 
-   <div class="box-container">
+   <div class="container d-flex justify-content-center mb-5">
       <?php
          $grand_total = 0;
          $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
          if(mysqli_num_rows($select_cart) > 0){
             while($fetch_cart = mysqli_fetch_assoc($select_cart)){   
       ?>
-      <div class="box">
-         <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times" onclick="return confirm('delete this from cart?');"></a>
-         <img src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
-         <div class="name"><?php echo $fetch_cart['nameWithOption']; ?></div>
-         <div class="price">$<?php echo $fetch_cart['price']; ?>/-</div>
-         <form action="" method="post">
+      <div class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
+         <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times position-absolute" style="top:7px; right:7px" onclick="return confirm('delete this from cart?');"></a>
+         <img class="image-fluid" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
+         <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_cart['nameWithOption']; ?></div>
+         <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>
+         <form action="" method="post" class="">
             <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
-            <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
-            <input type="submit" name="update_cart" value="update" class="option-btn">
+            <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>" class="px-2 py-2 border rounded border-dark col-12 mb-3">
+            <input type="submit" name="update_cart" value="update" class="btn btn-warning col-12 font-rubik font-size-20 text-capitalize text-dark">
          </form>
-         <div class="sub-total"> sub total : <span>$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?>/-</span> </div>
+         <div class="font-weight-bold font-size-20 text-capitalize text-center mt-4"> sub total : <span class="text-danger">$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?></span> </div>
       </div>
       <?php
       $grand_total += $sub_total;
          }
       }else{
-         echo '<p class="empty">your cart is empty</p>';
+         echo '<p class="card border border-dark w-25 text-center m-auto font-rubik font-size-20 text-capitalize text-danger py-3">your cart is empty</p>';
       }
       ?>
    </div>
 
    <div style="margin-top: 2rem; text-align:center;">
-      <a href="cart.php?delete_all" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">delete all</a>
+      <a href="cart.php?delete_all" class="btn btn-danger text-capitalize <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">delete all</a>
    </div>
 
-   <div class="cart-total">
-      <p>grand total : <span>$<?php echo $grand_total; ?>/-</span></p>
-      <div class="flex">
-         <a href="shop.php" class="option-btn">continue shopping</a>
-         <a href="checkout.php" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+   <div class="container py-5">
+      <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-auto my-4 font-rubik position-static shadow">
+         <p class="text-center font-size-20 text-capitalize">grand total : <span class="text-danger">$<?php echo $grand_total; ?></span></p>
+         <div class="d-flex justify-content-center">
+            <a href="shop.php" class="btn btn-dark mx-2 text-capitalize">continue shopping</a>
+            <a href="checkout.php" class="btn btn-success mx-2 text-capitalize <?php echo ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+         </div>
       </div>
    </div>
 
 </section>
 
-
-
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <?php include 'footer.php'; ?>
 
