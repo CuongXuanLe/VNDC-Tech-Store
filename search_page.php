@@ -77,8 +77,8 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="container d-flex flex-wrap justify-content-center py-5">
    <form action="" method="post" class="w-100 row d-flex">
-      <input type="text" name="search" placeholder="search products..." class="col-9 px-2 py-3 border rounded border-dark m-auto py-2">
-      <input type="submit" name="submit" value="search" class="col-2 btn btn-secondary py-2 px-4 text-capitalize m-auto">
+      <input type="text" name="search" placeholder="search products..." class="col-9 px-2 py-3 border rounded border-dark m-auto py-2 ">
+      <input type="submit" name="submit" value="search" class="col-2 btn btn-secondary py-2  text-capitalize m-auto text-center">
    </form>
 </section>
 

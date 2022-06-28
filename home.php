@@ -45,7 +45,6 @@ if(isset($_POST['add_to_cart'])){
 
    <!-- Bootstrap CDN -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
    <!-- Owl-carousel CDN -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
@@ -157,21 +156,32 @@ if(isset($_POST['add_to_cart'])){
    </div>
 </section>
 
-<!-- Owl carousel -->
-<section id="banner-area">
-   <div class="owl-carousel owl-theme">
-      <div class="item">
-         <img src="./images/workspace.jpg" style="height:90vh" alt="Banner1">
-      </div>
-      <div class="item">
-         <img src="./images/shop.jpg" alt="Banner2">
-      </div>
-      <div class="item">
-         <img src="./images/store.jpg" alt="Banner3">
-      </div>
-   </div>
-</section>
-
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./images/workspace.jpg" class="d-block w-100" alt="banner_1">
+    </div>
+    <div class="carousel-item">
+      <img src="./images/store.jpg" class="d-block w-100" alt="banner_1">
+    </div>
+    <div class="carousel-item">
+      <img src="./images/orders.jpg" class="d-block w-100" alt="banner_1">
+    </div>
+  </div>
+  <button class="carousel-control-prev h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+</div>
 
 <section class="home-contact">
    <div class="container py-5">

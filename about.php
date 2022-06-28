@@ -64,7 +64,7 @@ if(!isset($user_id)){
       <div class=" col-5 bg-image d-flex justify-content-center align-items-center hover-overlay ripple rounded"
          style="
             background-image: url('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/bts-header-giftcard-202206?wid=1120');
-            height: 50vh;
+            height: 75vh;
             width: 100vh;
             background-repeat: no-repeat;
             background-size: cover;

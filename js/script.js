@@ -1,35 +1,16 @@
-// let userBox = document.querySelector('.header .header-2 .user-box');
-
-// document.querySelector('#user-btn').onclick = () =>{
-//    userBox.classList.toggle('active');
-//    navbar.classList.remove('active');
-// }
-
-// let navbar = document.querySelector('.header .header-2 .navbar');
-
-// document.querySelector('#menu-btn').onclick = () =>{
-//    navbar.classList.toggle('active');
-//    userBox.classList.remove('active');
-// }
-
-// window.onscroll = () =>{
-//    userBox.classList.remove('active');
-//    navbar.classList.remove('active');
-
-//    if(window.scrollY > 60){
-//       document.querySelector('.header .header-2').classList.add('active');
-//    }else{
-//       document.querySelector('.header .header-2').classList.remove('active');
-//    }
-// }
-
-$(document).ready(function() {
-    
-   //banner owl carousel
-   $("#banner-area .owl-carousel").owlCarousel({
-       dots: true,
-       items: 1,
-       loop: true,
-   });
-
-});
+$('#carouselExampleIndicators .carousel-inner').Carousel({
+    loop:false,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
