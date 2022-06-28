@@ -43,35 +43,58 @@ if(isset($_POST['add_to_cart'])){
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <!-- Bootstrap CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <!-- Owl-carousel CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+   
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="css/styleWeb.css">
 
 </head>
 <body>
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>our shop</h3>
-   <p> <a href="home.php">home</a> / shop </p>
-</div>
+ 
+<section class="heading">
+   <div style="
+   background-color: rgba(0, 0, 0, 0.3);
+   height: 70vh;
+   background-image: url('https://images.unsplash.com/photo-1578258789061-354f25c13631');
+   background-repeat: no-repeat;
+   
+   background-size: cover;
+   background-position: center center;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+         <div class="text-center font-weight-bold font-rubik">
+            <p class="text-uppercase text-white" style="font-size: 3.5rem;">our shop</p>
+            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> shop </h4>
+         </div>
+      </div>
+   <div>
+</section>
+   
 
 <section class="products">
 
-   <h1 class="title">latest products</h1>
+   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
 
-   <div class="box-container">
+   <div class="container d-flex justify-content-center mb-5">
 
       <?php  
          $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-     <form action="" method="post" class="box">
-      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-      <div class="name"><?php echo $fetch_products['name']; ?></div>
-      <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-      <input type="number" min="1" name="product_quantity" value="1" class="qty">
+     <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
+      <img class="image-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+      <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
+      <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
+      <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
       <?php
          $item_id = $fetch_products['id'];
          $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
@@ -81,18 +104,19 @@ if(isset($_POST['add_to_cart'])){
             $option3 = $fetch_options['option_three'];
          }
       ?>
-      <div class="form-control">    
+      <div class="row d-flex flex-wrap justify-content-center">   
+         <p class="my-auto mr-4 font-weight-bold">Color:</p> 
             <!-- Dropdown options -->
             <select name="product_option" id="product_option">
                 <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
                 <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
                 <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
             </select>
-        </div>
+      </div>
       <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
       <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
       <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-      <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+      <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
      </form>
       <?php
          }
@@ -104,12 +128,9 @@ if(isset($_POST['add_to_cart'])){
 
 </section>
 
-
-
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <?php include 'footer.php'; ?>
 

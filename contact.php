@@ -41,38 +41,57 @@ if(isset($_POST['send'])){
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <!-- Bootstrap CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <!-- Owl-carousel CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+   
+   <!-- custom admin css file link  -->
+   <link rel="stylesheet" href="css/styleWeb.css">
 
 </head>
 <body>
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>contact us</h3>
-   <p> <a href="home.php">home</a> / contact </p>
-</div>
+<section class="heading">
+   <div style="
+   background-color: rgba(0, 0, 0, 0.3);
+   height: 50vh;
+   background-image: url('https://support.apple.com/content/dam/edam/applecare/images/en_US/homepage/psp-hero-banner-homepage-welcome.image.large_2x.jpg');
+   background-repeat: no-repeat;
+   
+   background-size: cover;
+   background-position: center center;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+         <div class="text-center font-weight-bold font-rubik">
+            <p class="text-uppercase text-white" style="font-size: 3.5rem;">contact us</p>
+            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> contact </h4>
+         </div>
+      </div>
+   <div>
+</section>
 
-<section class="contact">
-
-   <form action="" method="post">
-      <h3>say something!</h3>
-      <input type="text" name="name" required placeholder="enter your name" class="box">
-      <input type="email" name="email" required placeholder="enter your email" class="box">
-      <input type="number" name="number" required placeholder="enter your number" class="box">
-      <textarea name="message" class="box" placeholder="enter your message" id="" cols="30" rows="10"></textarea>
-      <input type="submit" value="send message" name="send" class="btn">
-   </form>
+<section class="py-5">
+   <div class="container d-flex justify-content-center my-5">
+      <form action="" method="post" class="card d-flex justify-content-center w-50 p-4 font-rubik border rounded border-dark shadow">
+         <h3 class="text-uppercase text-center font-weight-bold mb-4">say something!</h3>
+         <input type="text" name="name" required placeholder="enter your name" class="px-2 py-2 border rounded border-dark mb-3">
+         <input type="email" name="email" required placeholder="enter your email" class="px-2 py-2 border rounded border-dark mb-3">
+         <input type="number" name="number" required placeholder="enter your number" class="px-2 py-2 border rounded border-dark mb-3">
+         <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter your message" id="" cols="30" rows="10"></textarea>
+         <input type="submit" value="send message" name="send" class="btn btn-primary px-2 py-1 text-capitalize">
+      </form>
+   </div>
 
 </section>
 
-
-
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <?php include 'footer.php'; ?>
 

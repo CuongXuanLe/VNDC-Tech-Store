@@ -62,7 +62,7 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="header__tittle">
 
-   <div style="
+   <div class="mask" style="
       background-color: rgba(0, 0, 0, 0.3); 
       height: 80vh;
       background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
@@ -78,15 +78,12 @@ if(isset($_POST['add_to_cart'])){
       </div>
    </div>
 
-   <div class="bg-image p-2 text-center shadow-1-strong rounded mb-5 text-white">
-      
-   </div>
 
 </section>
 
 <section class="products">
 
-   <h1 class="text-center font-rubik pb-5 font-weight-bold text-uppercase">latest products</h1>
+   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
 
    <div class="container d-flex justify-content-center mb-5">
 
@@ -97,9 +94,9 @@ if(isset($_POST['add_to_cart'])){
       ?>
      <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
       <img class="image-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-      <div class="name font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
-      <div class="price font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
-      <input type="number" min="1" name="product_quantity" value="1" class=" px-2 py-2 border rounded border-dark mb-3">
+      <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
+      <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
+      <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
       <?php
          $item_id = $fetch_products['id'];
          $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
