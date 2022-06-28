@@ -169,7 +169,7 @@ if(isset($_POST['update_product'])){
 </section>
 
 <section class="edit-product-form">
-   <div class="container d-flex flex-wrap justify-content-center mt-3">
+   <div class="container d-flex flex-wrap justify-content-center mt-3 pb-5">
       <?php
          if(isset($_GET['update'])){
             $update_id = $_GET['update'];
@@ -187,7 +187,7 @@ if(isset($_POST['update_product'])){
       <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow">
          <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
          <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
-         <img class="img-fluid" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+         <img class="img" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
          <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="px-2 py-2 border rounded border-dark mb-2 text-capitalize" required placeholder="enter product name">
          <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="px-2 py-2 border rounded border-dark mb-2" required placeholder="enter product price">
          <input type="file" class="px-2 py-2 border rounded border-dark mb-2" name="update_image" accept="image/jpg, image/jpeg, image/png">

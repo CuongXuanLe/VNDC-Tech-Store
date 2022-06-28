@@ -29,14 +29,14 @@ if(isset($message)){
             
             <!-- toggle menu use -->
             <div class="dropdown">
-               <div id="user-btn" class="fas fa-user mr-3" data-toggle="dropdown">
+               <div id="user-btn" class="fas fa-user mr-3" data-toggle="dropdown"></div>
                   <div class="dropdown-menu p-0 w-auto font-rubik" style="left:-185px;">
                      <p class="px-3 pt-3">Username : <span class="color-primary font-size-16"><?php echo $_SESSION['user_name']; ?></span></p>
                      <p class="px-3" style="margin-top:-10px;">Email : <span class="color-primary font-size-16"><?php echo $_SESSION['user_email']; ?></span></p>
                      <hr class="dropdown-divider p-0">
-                     <p class="p-0 text-center font-weight-bold"><a href="logout.php" class="delete-btn text-danger text-decoration-none" >Logout</a></p>
+                     <p class="p-0 text-center font-weight-bold"><a href="logout.php" class="user-box delete-btn text-danger text-decoration-none" >Logout</a></p>
                   </div>
-               </div>
+               
             </div>
             <?php
                $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');

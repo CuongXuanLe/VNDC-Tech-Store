@@ -58,7 +58,7 @@ if(!isset($user_id)){
    <div>
 </section>
 
-<section class="placed-orders">
+<section class="placed-orders ">
 
    <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">placed orders</h1>
 
@@ -79,7 +79,7 @@ if(!isset($user_id)){
             <p  class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
             <p  class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
             <p  class="font-weight-bold"> Your orders : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-            <p  class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+            <p  class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?></span> </p>
          </div>
          <p  class="font-weight-bold"> Payment status : <span class="font-weight-normal" style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>
          </div>

@@ -136,28 +136,42 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="about">
 
-   <div class="container p-0 d-flex my-5 align-items-center shadow">
+   <div class="container w-75 h-auto p-0 d-flex my-5 align-items-center shadow ripple rounded">
 
-      <div class="bg-image d-flex justify-content-center align-items-center hover-overlay ripple rounded"
+      <div class="bg-image d-flex justify-content-center align-items-center hover-overlay col-6"
          style="
             background-image: url('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/bts-header-giftcard-202206?wid=1120');
-            height: 50vh;
-            width: 100vh;
+            height: 80vh;
+            width: 30vh;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
             ">
       </div>
 
-      <div class="p-5">
+      <div class="p-5 col-5">
          <h2 class="text-center font-rubik pb-3 font-weight-bold text-uppercase">about us</h3>
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
          <a href="about.php" class="btn btn-secondary text-capitalize font-rubik">read more <i class="fa-solid fa-arrow-right"></i> </a>
       </div>
-
    </div>
-
 </section>
+
+<!-- Owl carousel -->
+<section id="banner-area">
+   <div class="owl-carousel owl-theme">
+      <div class="item">
+         <img src="./images/workspace.jpg" style="height:90vh" alt="Banner1">
+      </div>
+      <div class="item">
+         <img src="./images/shop.jpg" alt="Banner2">
+      </div>
+      <div class="item">
+         <img src="./images/store.jpg" alt="Banner3">
+      </div>
+   </div>
+</section>
+
 
 <section class="home-contact">
    <div class="container py-5">
@@ -167,7 +181,6 @@ if(isset($_POST['add_to_cart'])){
          <a href="contact.php" class="btn btn-secondary text-capitalize font-rubik">contact us <i class="fa-solid fa-comment pl-1"></i></a>
       </div>
    </div>
-
 </section>
 
 <?php include 'footer.php'; ?>
@@ -178,6 +191,9 @@ if(isset($_POST['add_to_cart'])){
 
 <!-- Owl Carousel Js file -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+
+<!--  isotope plugin cdn  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
