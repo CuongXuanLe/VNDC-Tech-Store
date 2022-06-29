@@ -63,11 +63,11 @@ if(isset($message)){
 
       <!-- Right elements -->
       <div class="d-flex align-items-center">
-            <a href="search_page.php" class="fas fa-search mr-3 text-dark text-decoration-none"></a>
+            <a href="search_page.php" class="fas fa-search mr-3 text-dark text-decoration-none px-1"></a>
             
             <!-- toggle menu use -->
             <div class="dropdown">
-               <div class="fas fa-user mr-3" data-toggle="dropdown"></div>
+               <div class="fas fa-user mr-3 px-1" data-toggle="dropdown"></div>
                   <div class="dropdown-menu p-0 w-auto font-rubik" style="left:-185px;">
                      <p class="px-3 pt-3">Username : <span class="color-primary font-size-16"><?php echo $_SESSION['user_name']; ?></span></p>
                      <p class="px-3" style="margin-top:-10px;">Email : <span class="color-primary font-size-16"><?php echo $_SESSION['user_email']; ?></span></p>
@@ -80,7 +80,7 @@ if(isset($message)){
                $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
                $cart_rows_number = mysqli_num_rows($select_cart_number); 
             ?>
-            <a class="text-decoration-none" href="cart.php"> <i class="fas fa-shopping-cart text-dark"></i> <span class="text-dark">(<?php echo $cart_rows_number; ?>)</span> </a>
+            <a class="text-decoration-none px-1" href="cart.php"> <i class="fas fa-shopping-cart text-dark"></i> <span class="text-dark">(<?php echo $cart_rows_number; ?>)</span> </a>
       </div>
    </div>
 </nav>

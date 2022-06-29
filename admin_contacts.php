@@ -42,7 +42,7 @@ if(isset($_GET['delete'])){
 
    <section class="messages" style="margin-top: 50px;">
 
-      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> messages </h1>
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> feedback </h1>
 
       <div class="container d-flex flex-wrap justify-content-center">
       <?php
@@ -57,10 +57,10 @@ if(isset($_GET['delete'])){
             <p class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_message['name']; ?></span> </p>
             <p class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_message['number']; ?></span> </p>
             <p class="font-weight-bold"> Email : <span class="font-weight-normal text-danger"><?php echo $fetch_message['email']; ?></span> </p>
-            <p class="font-weight-bold"> Message : <span class="font-weight-normal"><?php echo $fetch_message['message']; ?></span> </p>
+            <p class="font-weight-bold"> Feedback : <span class="font-weight-normal"><?php echo $fetch_message['message']; ?></span> </p>
          </div>
          <div class="btn btn-danger">
-            <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="text-white text-decoration-none text-capitalize">delete message</a>
+            <a href="admin_contacts.php?delete=<?php echo $fetch_message['id']; ?>" onclick="return confirm('delete this feedback?');" class="text-white text-decoration-none text-capitalize">delete feedback</a>
          </div>
       </div>
       <?php

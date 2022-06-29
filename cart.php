@@ -102,7 +102,7 @@ if(isset($_GET['delete_all'])){
          $grand_total += $sub_total;
             }
          }else{
-            echo '<p class="card border border-dark w-25 text-center m-auto font-rubik font-size-20 text-capitalize text-danger py-3">your cart is empty</p>';
+            echo '<p class="card border border-dark text-center m-auto font-rubik font-size-20 text-capitalize text-danger p-3">your cart is empty</p>';
          }
          ?>
          </div>

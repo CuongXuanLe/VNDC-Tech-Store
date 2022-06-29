@@ -80,6 +80,7 @@ if(isset($_POST['add_to_cart'])){
 <section>
    <div class="style">
       <div class="container pt-5">
+      <h1 class="text-start font-rubik py-2 text-capitalize">Lastest product</h1>
          <div class="row slider">
             <div class="col-md-12 text-center">
                <div class="item">
@@ -117,7 +118,7 @@ if(isset($_POST['add_to_cart'])){
 </section>
 
 <section class="products">
-   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> products</h1>
+   <h1 class="text-center font-rubik pt-5 pb-2 font-weight-bold text-uppercase"> products</h1>
    <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
       <div class="row d-flex justify-content-center">
          <?php  
@@ -161,6 +162,47 @@ if(isset($_POST['add_to_cart'])){
             echo '<p class="empty">no products added yet!</p>';
          }
          ?>
+      </div>
+   </div>
+</section>
+
+<!-- carousel -->
+<section>
+   <div class="style">
+      <div class="container pt-5">
+         <h1 class="text-start font-rubik py-2 text-capitalize">News</h1>
+         <div class="row slider2">
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner1.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner2.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner1.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner2.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner1.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+            <div class="col-md-12 text-center">
+               <div class="item">
+                  <img src="./images/Banner2.png" class="d-block w-100 rounded" alt="banner_1">
+               </div>  
+            </div>
+         </div>
       </div>
    </div>
 </section>

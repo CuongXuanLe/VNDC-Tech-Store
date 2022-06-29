@@ -84,8 +84,8 @@ if(isset($_GET['delete'])){
                      <option value="completed">Changed: completed</option>
                   </select>
                </div>
-               <div class="row d-flex justify-content-center text-center">
-                  <input type="submit" value="Update" name="update_order" class="btn btn-warning px-5 mx-2 font-weight-bold">
+               <div class="row d-flex justify-content-center text-center mt-3">
+                  <input type="submit" value="Update" name="update_order" class="btn btn-dark px-auto mx-2 mb-2 font-weight-bold my-auto">
                   <button class="px-5 btn btn-danger mx-2 font-weight-semibold "><a class="text-white text-decoration-none" href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('delete this order?');" >Delete</a></button>
                </div>   
             </form>

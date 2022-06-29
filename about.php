@@ -64,7 +64,7 @@ if(!isset($user_id)){
             </div>
             <div class="col-lg-6 my-auto">
                <div class="card-body">
-                  <h2 class="card-title text-center font-rubik pb-3 font-weight-bold text-uppercase">why choose us?</h2>
+                  <h2 class="card-title text-center font-rubik pb-3 font-weight-bold text-uppercase">VNDC Tech</h2>
                   <p class="card-text">
                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum provident fugit inventore praesentium eius iure nam error quas, labore at ipsa cumque reprehenderit molestias quos ducimus temporibus accusamus, iusto accusantium ex quae. Quam recusandae fugiat ipsum magnam nesciunt cumque, earum tenetur, eos quos similique molestias modi laborum incidunt!
                   </p>

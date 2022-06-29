@@ -39,12 +39,12 @@ if(!isset($admin_id)){
 
    <section class="dashboard" style="margin-top: 50px;">
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase ">
-         <i class="fas fa-code  fa-1x"></i> VNDC Tech
+         Dashboard
       </h1>
 
-      <div class="container-fluid">
+      <div class="container">
          <div class="row d-flex flex-wrap justify-content-center">
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php
                   $total_pendings = 0;
                   $select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
@@ -55,11 +55,11 @@ if(!isset($admin_id)){
                      };
                   };
                ?>
-               <h3 class="font-rubik font-weight-bold">$<?php echo $total_pendings; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">total pendings</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">total pendings</p>
+               <h1 class="font-rubik my-auto font-weight-bold text-danger">$<?php echo $total_pendings; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php
                   $total_completed = 0;
                   $select_completed = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'completed'") or die('query failed');
@@ -70,65 +70,68 @@ if(!isset($admin_id)){
                      };
                   };
                ?>
-               <h3 class="font-rubik font-weight-bold">$<?php echo $total_completed; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">completed payments</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">completed payments</p>
+               <h1 class="font-rubik my-auto font-weight-bold text-success">$<?php echo $total_completed; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
                   $number_of_orders = mysqli_num_rows($select_orders);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_orders; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">order placed</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">order placed</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_orders; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
                   $number_of_products = mysqli_num_rows($select_products);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_products; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">products added</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">products added</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_products; ?></h1>
             </div>
-         </div>
-         <div class="row d-flex flex-wrap justify-content-center">
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'user'") or die('query failed');
                   $number_of_users = mysqli_num_rows($select_users);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_users; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">normal users</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">normal users</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_users; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_admins = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'admin'") or die('query failed');
                   $number_of_admins = mysqli_num_rows($select_admins);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_admins; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">admin users</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">admin users</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_admins; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_account = mysqli_query($conn, "SELECT * FROM `users`") or die('query failed');
                   $number_of_account = mysqli_num_rows($select_account);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_account; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">total accounts</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">total accounts</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_account; ?></h1>
             </div>
 
-            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="col-lg-4 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_messages = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
                   $number_of_messages = mysqli_num_rows($select_messages);
                ?>
-               <h3 class="font-rubik font-weight-bold"><?php echo $number_of_messages; ?></h3>
-               <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">new messages</p>
+               <p class="font-size-20 font-rubik font-weight-bold text-capitalize py-1 my-auto">new messages</p>
+               <h1 class="font-rubik my-auto font-weight-bold"><?php echo $number_of_messages; ?></h1>
+               
             </div>
          </div>
+         <!-- <div class="row d-flex flex-wrap justify-content-center">
+            
+         </div> -->
       </div>
 
    </section>

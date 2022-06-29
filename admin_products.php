@@ -125,7 +125,7 @@ if(isset($_POST['update_product'])){
 
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products summary</h1>
       <div class="container d-flex justify-content-center mb-5">
-         <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-50 p-4 font-rubik border rounded border-dark shadow">
+         <form action="" method="post" enctype="multipart/form-data" class="card col-lg-8 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow">
             <h3 class="text-uppercase text-center font-weight-bold mb-4">add product</h3>
             <input type="text" name="name" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter product name" required>
             <input type="number" min="0" name="price" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter product price" required>
@@ -146,7 +146,6 @@ if(isset($_POST['update_product'])){
    <section class="show-products">
 
       <div class="container d-flex flex-wrap justify-content-center">
-
          <?php
             $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
             if(mysqli_num_rows($select_products) > 0){
@@ -174,8 +173,10 @@ if(isset($_POST['update_product'])){
 
    </section>
 
-   <section class="edit-product-form">
-      <div class="container d-flex flex-wrap justify-content-center mt-3 pb-5">
+   <section class="edit-product-form pt-3">
+      <h1 class="text-center font-rubik py-2 font-weight-bold text-capitalize">Update information product</h1>
+      <div class="container d-flex flex-wrap justify-content-center mt-1 pb-5">
+         
          <?php
             if(isset($_GET['update'])){
                $update_id = $_GET['update'];
@@ -190,7 +191,7 @@ if(isset($_POST['update_product'])){
                   while($fetch_update = mysqli_fetch_assoc($update_query)){
          ?>
          
-         <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow">
+         <form action="" method="post" enctype="multipart/form-data" class="card d-flex col-lg-4 justify-content-center p-4 font-rubik border rounded border-dark shadow">
             <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
             <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
             <div class="py-auto">
