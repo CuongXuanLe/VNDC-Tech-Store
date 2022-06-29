@@ -59,31 +59,6 @@ if(isset($_POST['submit'])){
          }
       }
       ?>
-         
-      <!-- <div id="register-form" class="form-container">
-         <div class="row ">
-            <div class="col-sm-6 px-0 d-none d-sm-block">
-                  <img src="./images/login.png"
-                  alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
-               </div>
-            <div class="col-sm-6 d-flex justify-content-center align-items-center">
-               <form action="" method="post" class="card shadow-lg w-75 p-3 border border-dark">
-                  <h3 class="mx-auto pb-2 font-rubik font-weight-bold text-capitalize">register now</h3>
-                  <input type="text" name="name" placeholder="enter your name" required class="box mx-4 p-2 mb-3 border rounded border-dark">
-                  <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
-                  <input type="password" name="password" placeholder="enter your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
-                  <input type="password" name="cpassword" placeholder="confirm your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
-                  <select name="user_type" class="box mx-4 p-2 border rounded border-dark text-capitalize">
-                     <option value="user" class="text-capitalize">user</option>
-                     <option value="admin" class="text-capitalize">admin</option>
-                  </select>
-                  <input type="submit" name="submit" value="register now" class="font-baloo btn btn-dark mx-auto my-3 color-white text-capitalize">
-                  <p class="mx-auto font-rale text-capitalize text-center">already have an account? <a href="login.php" class="text-decoration-none">login now</a></p>
-               </form>
-            </div>
-         </div>
-      </div> -->
-
       <section class="vh-100">
       <div class="container-fluid">
          <div class="row">

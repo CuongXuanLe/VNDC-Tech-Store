@@ -46,7 +46,6 @@ if(isset($_POST['send'])){
 
       <!-- custom admin css file link  -->
       <link rel="stylesheet" href="css/styleWeb.css">
-
    </head>
    <body>
       

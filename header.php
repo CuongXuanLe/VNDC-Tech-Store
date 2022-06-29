@@ -24,7 +24,7 @@ if(isset($message)){
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
          <!-- Navbar brand -->
-         <a class="navbar-brand mt-2 mt-lg-0 text-decoration-none font-rubik font-size-20 text-dark font-weight-bold" href="home.php">VNDC Tech</a>
+         <a class="navbar-brand mt-2 mt-lg-0 text-decoration-none font-rubik font-size-20 text-dark font-weight-bold" href="home.php"><i class="fas fa-code mr-1 text-dark"></i> VNDC Tech</a>
          <!-- Left links -->
          <ul class="navbar-nav mb-2 mb-md-0 m-auto">
             <li class="nav-item active">
