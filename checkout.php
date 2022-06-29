@@ -64,148 +64,140 @@ if(isset($_POST['order_btn'])){
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>checkout</title>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>checkout</title>
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <!-- font awesome cdn link  -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-   <!-- Bootstrap CDN -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- Bootstrap CDN -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-   <!-- Owl-carousel CDN -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+      <!-- custom admin css file link  -->
+      <link rel="stylesheet" href="css/styleWeb.css">
 
-   
-   <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="css/styleWeb.css">
-
-</head>
-<body>
-   
-<?php include 'header.php'; ?>
-
-<section class="heading">
-   <div style="
-   background-color: rgba(0, 0, 0, 0.3);
-   height: 50vh;
-   background-image: url('https://images.unsplash.com/photo-1561715276-a2d087060f1d');
-   background-repeat: no-repeat;
-   
-   background-size: cover;
-   background-position: center center;">
-      <div class="d-flex justify-content-center align-items-center h-100">
-         <div class="text-center font-weight-bold font-rubik">
-            <p class="text-uppercase text-white" style="font-size: 3.5rem;">checkout</p>
-            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> checkout </h4>
-         </div>
-      </div>
-   <div>
-</section>
-
-<section class="container d-flex justify-content-center mt-5">
-   <div class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
-      <?php  
-         $grand_total = 0;
-         $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-         if(mysqli_num_rows($select_cart) > 0){
-            while($fetch_cart = mysqli_fetch_assoc($select_cart)){
-               $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
-               $grand_total += $total_price;
-      ?>
-      <p> <?php echo $fetch_cart['nameWithOption']; ?> <span>(<?php echo '$'.$fetch_cart['price'].' x '. $fetch_cart['quantity']; ?>)</span> </p>
-      <?php
-         }
-      }else{
-         echo '<p class="empty">your cart is empty</p>';
-      }
-      ?>
-      <div class="font-weight-bold font-size-16 text-capitalize"> grand total : <span class="text-danger">$<?php echo $grand_total; ?></span> </div>
-   </div>
-</section>
-
-<section class="container p-5">
-
-   <form action="" method="post" class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
-      <h3 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Place your order</h3>
-      <div class="row-lg-12 d-flex justify-content-center m-auto">
-         <div class="col-12">
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Your Name :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="name" required placeholder="enter your name">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Your Number :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="number" name="number" required placeholder="enter your number">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Your Email :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="email" name="email" required placeholder="enter your email">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Payment Method :</span>
-               <br/>
-               <select name="method" class="w-100 px-2 py-2 border rounded border-dark">
-                  <option value="cash on delivery">cash on delivery</option>
-                  <option value="credit card">credit card</option>
-                  <option value="paypal">paypal</option>
-                  <option value="paytm">paytm</option>
-               </select>
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Flat/House Number :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
-            </div>
-         </div>
-         <div class="col-12">
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="street" required placeholder="e.g. street name">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">City :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="city" required placeholder="e.g. mumbai">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">State :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="state" required placeholder="e.g. maharashtra">
-            </div>
-            <div class="py-1">
-               <span class="font-weight-bold font-size-16 text-capitalize">Country :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="country" required placeholder="e.g. india">
-            </div>
-            <div class="py-1 mb-5">
-               <span class="font-weight-bold font-size-16 text-capitalize">pin code :</span>
-               <br/>
-               <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
-            </div>
-         </div>
-         </div>
-         <input type="submit" value="order now" class="btn btn-danger text-capitalize w-25 m-auto " name="order_btn">
-      </form>
+   </head>
+   <body>
       
-</section>
-   
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <?php include 'header.php'; ?>
 
-<?php include 'footer.php'; ?>
+   <section class="heading">
+      <div style="
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 50vh;
+      background-image: url('https://images.unsplash.com/photo-1561715276-a2d087060f1d');
+      background-repeat: no-repeat;
+      
+      background-size: cover;
+      background-position: center center;">
+         <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-center font-weight-bold font-rubik">
+               <p class="text-uppercase text-white" style="font-size: 3.5rem;">checkout</p>
+               <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> checkout </h4>
+            </div>
+         </div>
+      <div>
+   </section>
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
+   <section class="container d-flex justify-content-center mt-5">
+      <div class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
+         <?php  
+            $grand_total = 0;
+            $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+            if(mysqli_num_rows($select_cart) > 0){
+               while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+                  $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
+                  $grand_total += $total_price;
+         ?>
+         <p> <?php echo $fetch_cart['nameWithOption']; ?> <span>(<?php echo '$'.$fetch_cart['price'].' x '. $fetch_cart['quantity']; ?>)</span> </p>
+         <?php
+            }
+         }else{
+            echo '<p class="empty">your cart is empty</p>';
+         }
+         ?>
+         <div class="font-weight-bold font-size-16 text-capitalize"> grand total : <span class="text-danger">$<?php echo $grand_total; ?></span> </div>
+      </div>
+   </section>
 
-</body>
+   <section class="container p-5">
+
+      <form action="" method="post" class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
+         <h3 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Place your order</h3>
+         <div class="row-lg-12 d-flex justify-content-center m-auto">
+            <div class="col-12">
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Your Name :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="name" required placeholder="enter your name">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Your Number :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" name="number" required placeholder="enter your number">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Your Email :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="email" name="email" required placeholder="enter your email">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Payment Method :</span>
+                  <br/>
+                  <select name="method" class="w-100 px-2 py-2 border rounded border-dark">
+                     <option value="cash on delivery">cash on delivery</option>
+                     <option value="credit card">credit card</option>
+                     <option value="paypal">paypal</option>
+                     <option value="paytm">paytm</option>
+                  </select>
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Flat/House Number :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
+               </div>
+            </div>
+            <div class="col-12">
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="street" required placeholder="e.g. street name">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">City :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="city" required placeholder="e.g. mumbai">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">State :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="state" required placeholder="e.g. maharashtra">
+               </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Country :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="country" required placeholder="e.g. india">
+               </div>
+               <div class="py-1 mb-5">
+                  <span class="font-weight-bold font-size-16 text-capitalize">pin code :</span>
+                  <br/>
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
+               </div>
+            </div>
+            </div>
+            <input type="submit" value="order now" class="btn btn-danger text-capitalize w-25 m-auto " name="order_btn">
+         </form>
+         
+   </section>
+      
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+   <?php include 'footer.php'; ?>
+
+   </body>
 </html>
