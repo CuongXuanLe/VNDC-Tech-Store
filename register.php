@@ -60,12 +60,13 @@ if(isset($_POST['submit'])){
       }
       ?>
          
-      <div id="register-form" class="form-container">
+      <!-- <div id="register-form" class="form-container">
          <div class="row ">
-            <div class="col h-75 p-0">
-               <img src="images/login.png" alt="" class="img-fluid ">
-            </div>
-            <div class="col d-flex justify-content-center align-items-center">
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+                  <img src="./images/login.png"
+                  alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+               </div>
+            <div class="col-sm-6 d-flex justify-content-center align-items-center">
                <form action="" method="post" class="card shadow-lg w-75 p-3 border border-dark">
                   <h3 class="mx-auto pb-2 font-rubik font-weight-bold text-capitalize">register now</h3>
                   <input type="text" name="name" placeholder="enter your name" required class="box mx-4 p-2 mb-3 border rounded border-dark">
@@ -81,7 +82,39 @@ if(isset($_POST['submit'])){
                </form>
             </div>
          </div>
+      </div> -->
+
+      <section class="vh-100">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+               <img src="./images/login.png"
+               alt="Register image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+            <div class="col-sm-6 p-0 text-black">
+               <div class="px-4 pl-2 ms-xl-4">
+                  <i class="fas fa-code text-dark fa-2x me-3 pt-1 mt-xl-4"></i>
+                  <span class="h3 font-rubik mb-0 font-weight-600">VNDC Tech</span>
+               </div>
+               <div class="d-flex ml-4 ms-xl-4 mt-5 pt-xl-0 px-5" style="max-width: 40rem;">
+                  <form action="" method="post" class="card shadow-lg w-100 p-1 border border-dark text-center">
+                     <h3 class="mx-auto py-4 font-rubik font-weight-bold text-capitalize">register now</h3>
+                     <input type="text" name="name" placeholder="enter your name" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+                     <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+                     <input type="password" name="password" placeholder="enter your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+                     <input type="password" name="cpassword" placeholder="confirm your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+                     <select name="user_type" class="box mx-4 p-2 border rounded border-dark text-capitalize">
+                        <option value="user" class="text-capitalize">user</option>
+                        <option value="admin" class="text-capitalize">admin</option>
+                     </select>
+                     <input type="submit" name="submit" value="register now" class="font-baloo btn btn-dark mx-auto my-3 color-white text-capitalize">
+                     <p class="mx-auto font-rale text-capitalize text-center">already have an account? <a href="login.php" class="text-decoration-none">login now</a></p>
+                  </form>
+               </div>
+            </div>
+         </div>
       </div>
+   </section>
 
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
