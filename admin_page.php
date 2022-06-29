@@ -38,12 +38,13 @@ if(!isset($admin_id)){
    <!-- admin dashboard section starts  -->
 
    <section class="dashboard" style="margin-top: 50px;">
-
-      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">dashboard</h1>
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase ">
+         <i class="fas fa-code  fa-1x"></i> VNDC Tech
+      </h1>
 
       <div class="container-fluid">
          <div class="row d-flex flex-wrap justify-content-center">
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php
                   $total_pendings = 0;
                   $select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
@@ -58,7 +59,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">total pendings</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php
                   $total_completed = 0;
                   $select_completed = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'completed'") or die('query failed');
@@ -73,7 +74,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">completed payments</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
                   $number_of_orders = mysqli_num_rows($select_orders);
@@ -82,7 +83,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">order placed</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
                   $number_of_products = mysqli_num_rows($select_products);
@@ -92,7 +93,7 @@ if(!isset($admin_id)){
             </div>
          </div>
          <div class="row d-flex flex-wrap justify-content-center">
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'user'") or die('query failed');
                   $number_of_users = mysqli_num_rows($select_users);
@@ -101,7 +102,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">normal users</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_admins = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'admin'") or die('query failed');
                   $number_of_admins = mysqli_num_rows($select_admins);
@@ -110,7 +111,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">admin users</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_account = mysqli_query($conn, "SELECT * FROM `users`") or die('query failed');
                   $number_of_account = mysqli_num_rows($select_account);
@@ -119,7 +120,7 @@ if(!isset($admin_id)){
                <p class="font-size-20 font-rubik font-weight-bold border rounded border-dark text-capitalize bg-light py-1 mt-3">total accounts</p>
             </div>
 
-            <div class="card col-lg-2 text-center px-2 py-3 border rounded border-dark m-2">
+            <div class="card col-md-2 text-center px-2 py-3 border rounded border-dark m-2">
                <?php 
                   $select_messages = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
                   $number_of_messages = mysqli_num_rows($select_messages);
