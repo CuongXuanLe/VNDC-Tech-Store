@@ -176,7 +176,7 @@ if(isset($_POST['add_to_cart'])){
             <div class="row d-flex flex-wrap justify-content-center">
                <p class="my-auto mr-2 font-weight-bold">Color:</p>
                   <!-- Dropdown options -->
-                  <select name="product_option" id="product_option" class="border rounded border-dark py-2 px-auto">
+                  <select name="product_option" id="product_option" class="border rounded border-dark w-25 py-2 px-auto">
                      <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
                      <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
                      <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
