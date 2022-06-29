@@ -79,7 +79,7 @@ if(isset($_POST['send'])){
             <input type="text" name="name" required placeholder="enter your name" class="px-2 py-2 border rounded border-dark mb-3">
             <input type="email" name="email" required placeholder="enter your email" class="px-2 py-2 border rounded border-dark mb-3">
             <input type="number" name="number" required placeholder="enter your number" class="px-2 py-2 border rounded border-dark mb-3">
-            <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter your message" id="" cols="30" rows="5"></textarea>
+            <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter your feedback" id="" cols="30" rows="5"></textarea>
             <input type="submit" value="send feedback" name="send" class="btn btn-primary px-2 py-1 text-capitalize">
          </form>
       </div>
