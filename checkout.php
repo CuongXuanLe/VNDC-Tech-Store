@@ -119,16 +119,15 @@ if(isset($_POST['order_btn'])){
             echo '<p class="empty">your cart is empty</p>';
          }
          ?>
-         <div class="font-weight-bold font-size-16 text-capitalize"> grand total : <span class="text-danger">$<?php echo $grand_total; ?></span> </div>
+         <div class="font-weight-bold font-size-16 text-capitalize text-center font-size-20"> grand total : <span class="text-danger">$<?php echo $grand_total; ?></span> </div>
       </div>
    </section>
 
-   <section class="container p-5">
-
-      <form action="" method="post" class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
+   <section class="container p-5 d-flex justify-content-center">
+      <form action="" method="post" class="col-lg-8 card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
          <h3 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Place your order</h3>
-         <div class="row-md-12 d-flex justify-content-center m-auto">
-            <div class="col-xl-12">
+         <div class="row d-flex justify-content-center m-auto flex-wrap">
+            <div class="col-lg-6">
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Your Name :</span>
                   <br/>
@@ -160,7 +159,7 @@ if(isset($_POST['order_btn'])){
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
                </div>
             </div>
-            <div class="col-xl-12">
+            <div class="col-lg-6">
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
                   <br/>
@@ -188,7 +187,7 @@ if(isset($_POST['order_btn'])){
                </div>
             </div>
             </div>
-            <input type="submit" value="order now" class="btn btn-danger text-capitalize w-25 m-auto " name="order_btn">
+            <input type="submit" value="order now" class="btn btn-danger text-capitalize w-50 m-auto " name="order_btn">
          </form>
          
    </section>

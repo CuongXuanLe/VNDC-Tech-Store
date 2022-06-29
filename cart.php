@@ -76,18 +76,20 @@ if(isset($_GET['delete_all'])){
    <section class="shopping-cart">
 
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products added</h1>
-
-      <div class="container d-flex justify-content-center mb-5">
+      <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
+         <div class="row d-flex justify-content-center">
          <?php
             $grand_total = 0;
             $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
             if(mysqli_num_rows($select_cart) > 0){
                while($fetch_cart = mysqli_fetch_assoc($select_cart)){   
          ?>
-         <div class="card col-md-3 d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
+         <div class="card col-lg-3 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mb-4 mx-3">
             <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times position-absolute" style="top:7px; right:7px" onclick="return confirm('delete this from cart?');"></a>
-            <img class="image-fluid" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
-            <div class="font-size-20 text-capitalize"><?php echo $fetch_cart['nameWithOption']; ?></div>
+            <div class="my-auto">
+               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
+            </div>
+            <div class="font-size-20 text-capitalize my-2"><?php echo $fetch_cart['nameWithOption']; ?></div>
             <div class="font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>
             <form action="" method="post" class="">
                <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
@@ -103,6 +105,7 @@ if(isset($_GET['delete_all'])){
             echo '<p class="card border border-dark w-25 text-center m-auto font-rubik font-size-20 text-capitalize text-danger py-3">your cart is empty</p>';
          }
          ?>
+         </div>
       </div>
 
       <div style="margin-top: 2rem; text-align:center;">

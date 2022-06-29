@@ -64,7 +64,7 @@ if(!isset($user_id)){
             if(mysqli_num_rows($order_query) > 0){
                while($fetch_orders = mysqli_fetch_assoc($order_query)){
          ?>
-         <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-4 font-rubik position-static shadow">
+         <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-4 font-rubik shadow">
             <div class="h-100">
                <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>

@@ -80,19 +80,19 @@ if(!isset($user_id)){
       <div class="container-fluid py-4 mb-5 "> 
          <p class="text-uppercase text-dark text-center font-rubik" style="font-size: 3.5rem; font-weight:700">Meet the team</p>
          <div class="row p-0 d-flex flex-wrap my-5 justify-content-center align-items-center">
-            <div class="col-2 text-center font-rubik mx-4">
+            <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/cuong.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
                <p><span class="font-size-20">Cuong</span><br/>Front-End Developer</p>
             </div>
-            <div class="col-2 text-center font-rubik mx-4">
+            <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/dan.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
                <p><span class="font-size-20">Dan</span><br/>Back-End Developer</p>
             </div>
-            <div class="col-2 text-center font-rubik mx-4">
+            <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/nhut.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
                <p><span class="font-size-20">Nhut</span><br/>Back-End Developer</p>
             </div>
-            <div class="col-2 text-center font-rubik mx-4">
+            <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/vu.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
                <p><span class="font-size-20">Vu</span><br/>Front-End Developer</p>
             </div>

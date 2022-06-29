@@ -72,42 +72,43 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="container d-flex flex-wrap justify-content-center py-5">
    <form action="" method="post" class="w-100 row d-flex">
-      <input type="text" name="search" placeholder="search products..." class="col-9 px-2 py-3 border rounded border-dark m-auto py-2 ">
-      <input type="submit" name="submit" value="search" class="col-2 btn btn-secondary py-2  text-capitalize m-auto text-center">
+      <input type="text" name="search" placeholder="search products..." class="col-md-9 px-2 py-3 border rounded border-dark m-auto">
+      <input type="submit" name="submit" value="search" class="col-md-2 btn btn-secondary py-2 text-capitalize m-auto text-center">
    </form>
 </section>
 
 <section class="products">
-
    <div class="container d-flex justify-content-center mb-5">
-   <?php
-      if(isset($_POST['submit'])){
-         $search_item = $_POST['search'];
-         $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_item}%'") or die('query failed');
-         if(mysqli_num_rows($select_products) > 0){
-         while($fetch_product = mysqli_fetch_assoc($select_products)){
-   ?>
-   <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
-      <img src="uploaded_img/<?php echo $fetch_product['image']; ?>" alt="" class="image-fluid">
-      <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_product['name']; ?></div>
-      <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_product['price']; ?></div>
-      <input type="number"  class="qty px-2 py-2 border rounded border-dark mb-3" name="product_quantity" min="1" value="1">
-      
-      
-      <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
-      <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-      <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
-      <input type="submit" class="btn btn-primary text-capitalize mt-3" value="add to cart" name="add_to_cart">
-   </form>
-   <?php
+      <div class="row d-flex justify-content-center">
+         <?php
+            if(isset($_POST['submit'])){
+               $search_item = $_POST['search'];
+               $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_item}%'") or die('query failed');
+               if(mysqli_num_rows($select_products) > 0){
+               while($fetch_product = mysqli_fetch_assoc($select_products)){
+         ?>
+         <form action="" method="post" class="card col-lg-3 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
+            <img src="uploaded_img/<?php echo $fetch_product['image']; ?>" alt="" class="image d-block w-100">
+            <div class="font-weight-bold font-size-20 text-capitalize my-2"><?php echo $fetch_product['name']; ?></div>
+            <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_product['price']; ?></div>
+            <input type="number"  class="qty px-2 py-2 border rounded border-dark mb-3" name="product_quantity" min="1" value="1">
+            
+            
+            <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+            <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+            <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
+            <input type="submit" class="btn btn-primary text-capitalize mt-3" value="add to cart" name="add_to_cart">
+         </form>
+         <?php
+                  }
+               }else{
+                  echo '<p class="empty font-weight-bold font-size-20 text-capitalize text-danger">no result found!</p>';
+               }
+            }else{
+               echo '<p class="empty font-size-20 text-capitalize">search something!</p>';
             }
-         }else{
-            echo '<p class="empty font-weight-bold font-size-20 text-capitalize text-danger">no result found!</p>';
-         }
-      }else{
-         echo '<p class="empty font-size-20 text-capitalize">search something!</p>';
-      }
-   ?>
+         ?>
+      </div>
    </div>
   
 
