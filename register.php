@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
-   $user_type = $_POST['user_type'];
+   $user_type = 'user';
 
    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
@@ -99,10 +99,10 @@ if(isset($_POST['submit'])){
                      <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
                      <input type="password" name="password" placeholder="enter your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
                      <input type="password" name="cpassword" placeholder="confirm your password" required class="box mx-4 p-2 mb-3 border rounded border-dark">
-                     <select name="user_type" class="box mx-4 p-2 border rounded border-dark text-capitalize">
+                     <!-- <select name="user_type" class="box mx-4 p-2 border rounded border-dark text-capitalize">
                         <option value="user" class="text-capitalize">user</option>
                         <option value="admin" class="text-capitalize">admin</option>
-                     </select>
+                     </select> -->
                      <input type="submit" name="submit" value="register now" class="font-baloo btn btn-dark mx-auto my-3 color-white text-capitalize">
                      <p class="mx-auto font-rale text-capitalize text-center">already have an account? <a href="login.php" class="text-decoration-none">login now</a></p>
                   </form>
