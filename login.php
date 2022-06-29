@@ -72,8 +72,7 @@ if(isset($_POST['submit'])){
    }
    ?>
       
-
-   <div id="login-form" class="container-fluid">
+   <!-- <div id="login-form" class="container-fluid">
       <div class="row h-100">
          <div class="col h-75 p-0">
             <img src="images/login.png" alt="" class="img-fluid ">
@@ -88,10 +87,33 @@ if(isset($_POST['submit'])){
             </form>
          </div>
       </div>
-   </div>
+   </div> -->
 
-
-   </div>
+   <section class="vh-100">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+               <img src="./images/login.png"
+               alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+            <div class="col-sm-6 p-0 text-black">
+               <div class="px-5 ms-xl-4">
+                  <i class="fas fa-code text-dark fa-2x me-3 pt-5 mt-xl-4"></i>
+                  <span class="h3 font-rubik mb-0 font-weight-600">VNDC Tech</span>
+               </div>
+               <div class="d-flex p-5 ml-4 ms-xl-4 mt-5 pt-5 pt-xl-5" style="max-width: 40rem;">
+                     <form action="" method="post" class="card shadow-lg w-100 p-3 border border-dark text-center">
+                        <h3 class="m-auto pb-4 font-rubik">Login now</h2>
+                        <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
+                        <input type="password" name="password" placeholder="enter your password" required class="box mx-4 mb-3 p-2 border rounded border-dark">
+                        <input type="submit" name="submit" value="Login" class="font-baloo btn btn-dark w-25 m-auto  color-white">
+                        <p class="mx-auto pt-3 font-rale">Don't have an account? <a href="register.php" class="text-decoration-none">register now</a></p>
+                     </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
 
    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

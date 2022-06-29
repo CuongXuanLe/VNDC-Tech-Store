@@ -55,7 +55,7 @@ if(isset($_POST['send'])){
    <section class="heading">
       <div style="
       background-color: rgba(0, 0, 0, 0.3);
-      height: 50vh;
+      height: 70vh;
       background-image: url('https://support.apple.com/content/dam/edam/applecare/images/en_US/homepage/psp-hero-banner-homepage-welcome.image.large_2x.jpg');
       background-repeat: no-repeat;
       

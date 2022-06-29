@@ -38,7 +38,7 @@ if(!isset($user_id)){
    <section class="heading">
       <div style="
       background-color: rgba(0, 0, 0, 0.3);
-      height: 50vh;
+      height: 70vh;
       background-image: url('https://images.unsplash.com/photo-1549194388-f61be84a6e9e');
       background-repeat: no-repeat;
       
@@ -55,7 +55,7 @@ if(!isset($user_id)){
 
    <section class="placed-orders ">
 
-      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">placed orders</h1>
+      <h1 class="text-center font-rubik pt-4 font-weight-bold text-uppercase">placed orders</h1>
 
       <div class="container d-flex flex-wrap justify-content-center">
 

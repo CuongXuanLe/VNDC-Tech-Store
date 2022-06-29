@@ -38,7 +38,7 @@ if(!isset($user_id)){
 
    <div style="
       background-color: rgba(0, 0, 0, 0.5); 
-      height: 50vh;
+      height: 70vh;
       background-image: url('https://images.unsplash.com/photo-1593062096033-9a26b09da705');
       background-repeat: no-repeat;
       background-size: cover;

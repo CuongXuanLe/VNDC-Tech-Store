@@ -61,7 +61,7 @@ if(isset($_POST['add_to_cart'])){
 <section class="heading">
    <div style="
    background-color: rgba(0, 0, 0, 0.3);
-   height: 70vh;
+   height: 90vh;
    background-image: url('https://images.unsplash.com/photo-1578258789061-354f25c13631');
    background-repeat: no-repeat;
    
@@ -118,7 +118,7 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="products">
 
-   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
+   <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products</h1>
 
    <div class="container d-flex flex-wrap justify-content-center mb-5">
 
@@ -146,7 +146,7 @@ if(isset($_POST['add_to_cart'])){
             <div class="row d-flex flex-wrap justify-content-center">   
                <p class="my-auto mr-2 font-weight-bold">Color:</p> 
                   <!-- Dropdown options -->
-                  <select name="product_option" id="product_option" class="border rounded border-dark py-2 px-auto">
+                  <select name="product_option" id="product_option" class="border rounded border-dark py-2 w-25">
                      <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
                      <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
                      <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>

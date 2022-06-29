@@ -12,7 +12,7 @@ if(isset($message)){
 ?>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
    <!-- Container wrapper -->
    <div class="container">
       <!-- Toggle button -->

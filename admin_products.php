@@ -117,7 +117,7 @@ if(isset($_POST['update_product'])){
 
    <!-- product CRUD section starts  -->
 
-   <section class="add-products">
+   <section class="add-products" style="margin-top: 50px;">
 
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products summary</h1>
       <div class="container d-flex justify-content-center mb-5">
@@ -149,7 +149,9 @@ if(isset($_POST['update_product'])){
                while($fetch_products = mysqli_fetch_assoc($select_products)){
          ?>
          <div class="card col-lg-2 py-3 border rounded border-dark m-2 font-rubik shadow">
-            <img class="img-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+            <div class=" my-auto">
+               <img class="img d-block w-100" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+            </div>
             <div class="name text-capitalize"><?php echo $fetch_products['name']; ?></div>
             <div class="price">$<?php echo $fetch_products['price']; ?></div>
             <div class="name text-capitalize"><?php echo $fetch_products['sold']; ?> units sold</div>
@@ -187,7 +189,9 @@ if(isset($_POST['update_product'])){
          <form action="" method="post" enctype="multipart/form-data" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow">
             <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
             <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
-            <img class="img" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+            <div class="py-auto">
+               <img class="img d-block w-100 mb-3" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+            </div>
             <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="px-2 py-2 border rounded border-dark mb-2 text-capitalize" required placeholder="enter product name">
             <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="px-2 py-2 border rounded border-dark mb-2" required placeholder="enter product price">
             <input type="file" class="px-2 py-2 border rounded border-dark mb-2" name="update_image" accept="image/jpg, image/jpeg, image/png">

@@ -40,7 +40,7 @@ if(isset($_GET['delete'])){
       
    <?php include 'admin_header.php'; ?>
 
-   <section class="messages">
+   <section class="messages" style="margin-top: 50px;">
 
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> messages </h1>
 

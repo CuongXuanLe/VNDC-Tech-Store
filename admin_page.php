@@ -37,7 +37,7 @@ if(!isset($admin_id)){
 
    <!-- admin dashboard section starts  -->
 
-   <section class="dashboard">
+   <section class="dashboard" style="margin-top: 50px;">
 
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">dashboard</h1>
 

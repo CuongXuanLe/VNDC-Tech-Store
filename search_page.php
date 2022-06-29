@@ -55,16 +55,16 @@ if(isset($_POST['add_to_cart'])){
 <section class="heading">
    <div style="
    background-color: rgba(0, 0, 0, 0.3);
-   height: 50vh;
-   background-image: url('https://images.unsplash.com/photo-1549194388-f61be84a6e9e');
+   height: 70vh;
+   background-image: url('https://images.unsplash.com/photo-1617900906639-cab7adceb499');
    background-repeat: no-repeat;
-   
+   opacity: 0.9;
    background-size: cover;
    background-position: center center;">
       <div class="d-flex justify-content-center align-items-center h-100">
          <div class="text-center font-weight-bold font-rubik">
             <p class="text-uppercase text-white" style="font-size: 3.5rem;">search page</p>
-            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> search </h4>
+            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> <span class="text-light">search</span>  </h4>
          </div>
       </div>
    <div>
