@@ -45,10 +45,10 @@ if(isset($_POST['add_to_cart'])){
 
    <!-- Bootstrap CDN -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
    <!-- Owl-carousel CDN -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
-
+   <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
    
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="css/styleWeb.css">
@@ -84,41 +84,43 @@ if(isset($_POST['add_to_cart'])){
 
    <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
 
-   <div class="container d-flex justify-content-center mb-5">
+   <div class="container d-flex flex-wrap justify-content-center mb-5">
 
       <?php  
          $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-     <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
-      <img class="image-fluid" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-      <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
-      <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
-      <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
-      <?php
-         $item_id = $fetch_products['id'];
-         $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
-         while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
-            $option1 = $fetch_options['option_one'];
-            $option2 = $fetch_options['option_two'];
-            $option3 = $fetch_options['option_three'];
-         }
-      ?>
-      <div class="row d-flex flex-wrap justify-content-center">
-         <p class="my-auto mr-4 font-weight-bold">Color:</p>
-            <!-- Dropdown options -->
-            <select name="product_option" id="product_option" class="px-3 py-2">
-                <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
-                <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
-                <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
-            </select>
-        </div>
-      <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
-      <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
-      <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-      <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
-     </form>
+      <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow m-2">
+         <div class=" my-auto">
+            <img class="image d-block w-100 " src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+         </div> 
+         <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_products['name']; ?></div>
+         <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
+         <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
+         <?php
+            $item_id = $fetch_products['id'];
+            $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
+            while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
+               $option1 = $fetch_options['option_one'];
+               $option2 = $fetch_options['option_two'];
+               $option3 = $fetch_options['option_three'];
+            }
+         ?>
+         <div class="row d-flex flex-wrap justify-content-center">
+            <p class="my-auto mr-4 font-weight-bold">Color:</p>
+               <!-- Dropdown options -->
+               <select name="product_option" id="product_option" class="px-3 py-2">
+                  <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
+                  <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
+                  <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
+               </select>
+         </div>
+         <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
+         <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
+         <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+         <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
+      </form>
       <?php
          }
       }else{
@@ -157,30 +159,34 @@ if(isset($_POST['add_to_cart'])){
 </section>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./images/workspace.jpg" class="d-block w-100" alt="banner_1">
-    </div>
-    <div class="carousel-item">
-      <img src="./images/store.jpg" class="d-block w-100" alt="banner_1">
-    </div>
-    <div class="carousel-item">
-      <img src="./images/orders.jpg" class="d-block w-100" alt="banner_1">
-    </div>
-  </div>
-  <button class="carousel-control-prev h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </button>
+   <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner ">
+      <div class="carousel-item active">
+         <img src="./images/workspace.jpg" class="d-block w-100" alt="banner_1">
+         <div class="carousel-caption d-none d-md-block position-absolute">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+         </div>
+      </div>
+      <div class="carousel-item">
+         <img src="./images/store.jpg" class="d-block w-100" alt="banner_1">
+      </div>
+      <div class="carousel-item">
+         <img src="./images/orders.jpg" class="d-block w-100" alt="banner_1">
+      </div>
+   </div>
+   <button class="carousel-control-prev h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+   </button>
+   <button class="carousel-control-next h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+   </button>
 </div>
 
 <section class="home-contact">
@@ -205,8 +211,6 @@ if(isset($_POST['add_to_cart'])){
 <!--  isotope plugin cdn  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
 
 </body>
 </html>
