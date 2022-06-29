@@ -55,7 +55,7 @@ if(isset($_GET['delete_all'])){
    <section class="heading">
       <div style="
       background-color: rgba(0, 0, 0, 0.3);
-      height: 70vh;
+      height: 90vh;
       background-image: url('https://images.unsplash.com/photo-1578258789061-354f25c13631');
       background-repeat: no-repeat;
       
