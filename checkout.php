@@ -127,8 +127,8 @@ if(isset($_POST['order_btn'])){
 
       <form action="" method="post" class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
          <h3 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Place your order</h3>
-         <div class="row-lg-12 d-flex justify-content-center m-auto">
-            <div class="col-12">
+         <div class="row-md-12 d-flex justify-content-center m-auto">
+            <div class="col-xl-12">
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Your Name :</span>
                   <br/>
@@ -155,12 +155,12 @@ if(isset($_POST['order_btn'])){
                   </select>
                </div>
                <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Flat/House Number :</span>
+                  <span class="font-weight-bold font-size-16 text-capitalize">Flat/House Number:</span>
                   <br/>
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
                </div>
             </div>
-            <div class="col-12">
+            <div class="col-xl-12">
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
                   <br/>

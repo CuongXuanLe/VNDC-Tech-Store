@@ -81,15 +81,15 @@ if(isset($_GET['delete_all'])){
             if(mysqli_num_rows($select_cart) > 0){
                while($fetch_cart = mysqli_fetch_assoc($select_cart)){   
          ?>
-         <div class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
+         <div class="card col-md-3 d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow mx-3">
             <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times position-absolute" style="top:7px; right:7px" onclick="return confirm('delete this from cart?');"></a>
             <img class="image-fluid" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
-            <div class="font-weight-bold font-size-20 text-capitalize"><?php echo $fetch_cart['nameWithOption']; ?></div>
-            <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>
+            <div class="font-size-20 text-capitalize"><?php echo $fetch_cart['nameWithOption']; ?></div>
+            <div class="font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>
             <form action="" method="post" class="">
                <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
                <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>" class="px-2 py-2 border rounded border-dark col-12 mb-3">
-               <input type="submit" name="update_cart" value="update" class="btn btn-warning col-12 font-rubik font-size-20 text-capitalize text-dark">
+               <input type="submit" name="update_cart" value="update" class="btn btn-warning col-12 font-rubik text-capitalize text-dark">
             </form>
             <div class="font-weight-bold font-size-20 text-capitalize text-center mt-4"> sub total : <span class="text-danger">$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?></span> </div>
          </div>

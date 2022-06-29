@@ -51,29 +51,30 @@ if(!isset($user_id)){
       </div>
    <div> 
 
-
-
    <section class="about">
-      <div class="container p-0 d-flex my-5 align-items-center shadow">
-
-         <div class=" col-5 bg-image d-flex justify-content-center align-items-center hover-overlay ripple rounded"
-            style="
-               background-image: url('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/bts-header-giftcard-202206?wid=1120');
-               height: 75vh;
-               width: 100vh;
+      <div class="container card my-5 shadow">
+         <div class="row g-0">
+            <div class="col-lg-6 p-0">
+               <img src="./images/clay-banks-zH9kK6wNC20-unsplash.jpg" class="img-fluid rounded-start" alt="img." 
+               style="
                background-repeat: no-repeat;
                background-size: cover;
-               background-position: center center;
-               ">
+               background-position: center center;"
+               >
+            </div>
+            <div class="col-lg-6 my-auto">
+               <div class="card-body">
+                  <h2 class="card-title text-center font-rubik pb-3 font-weight-bold text-uppercase">why choose us?</h2>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum provident fugit inventore praesentium eius iure nam error quas, labore at ipsa cumque reprehenderit molestias quos ducimus temporibus accusamus, iusto accusantium ex quae. Quam recusandae fugiat ipsum magnam nesciunt cumque, earum tenetur, eos quos similique molestias modi laborum incidunt!
+                  </p>
+                  <a href="contact.php" class="btn btn-secondary text-capitalize font-rubik">contact us <i class="fa-solid fa-phone-flip ml-1"></i></a>
+               </div>
+            </div>
          </div>
-
-         <div class="p-5 col-7">
-            <h2 class="text-center font-rubik pb-3 font-weight-bold text-uppercase">why choose us?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem unde nam nihil suscipit quibusdam, tenetur perferendis odit eveniet culpa, aliquam corporis laborum? Non, hic excepturi incidunt quos ab ipsam optio voluptatem possimus at minima voluptatibus vel atque pariatur harum natus facere. Dolorem eveniet repudiandae totam quis eligendi illum, nobis repellendus.</p>
-            <a href="contact.php" class="btn btn-secondary text-capitalize font-rubik">contact us <i class="fa-solid fa-phone-flip ml-1"></i></a>
          </div>
-      </div>
    </section>
+
 
    <section class="team">
       <div class="container-fluid py-4 mb-5 "> 

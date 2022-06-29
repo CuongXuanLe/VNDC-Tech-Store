@@ -76,9 +76,76 @@ if(isset($_POST['add_to_cart'])){
 
    </section>
 
+   <section class="carousel py-5">
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+         </ol>
+         <div class="carousel-inner ">
+            <div class="carousel-item active">
+               <img src="./images/iphone.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="./images/iphone2.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="./images/iphone3.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="./images/iphone4.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>fourth  slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="./images/iphone5.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>Fifth slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="./images/laptop.jpg" class="d-block w-100" alt="banner_1">
+               <div class="carousel-caption d-none d-md-block position-absolute">
+                  <h5>Sixth slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+               </div>
+            </div>
+            
+         </div>
+         <button class="carousel-control-prev h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </button>
+         <button class="carousel-control-next h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </button>
+      </div>
+   </section>
+
    <section class="products">
 
-      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">latest products</h1>
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> products</h1>
 
       <div class="container d-flex flex-wrap justify-content-center mb-5">
 
@@ -87,7 +154,7 @@ if(isset($_POST['add_to_cart'])){
             if(mysqli_num_rows($select_products) > 0){
                while($fetch_products = mysqli_fetch_assoc($select_products)){
          ?>
-         <form action="" method="post" class="card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow m-2">
+         <form action="" method="post" class="col-md-3 card d-flex justify-content-center w-25 p-4 font-rubik border rounded border-dark shadow m-2">
             <div class=" my-auto">
                <img class="image d-block w-100 " src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
             </div> 
@@ -104,9 +171,9 @@ if(isset($_POST['add_to_cart'])){
                }
             ?>
             <div class="row d-flex flex-wrap justify-content-center">
-               <p class="my-auto mr-4 font-weight-bold">Color:</p>
+               <p class="my-auto mr-2 font-weight-bold">Color:</p>
                   <!-- Dropdown options -->
-                  <select name="product_option" id="product_option" class="px-3 py-2">
+                  <select name="product_option" id="product_option" class="border rounded border-dark py-2 px-auto">
                      <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
                      <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
                      <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
@@ -132,58 +199,28 @@ if(isset($_POST['add_to_cart'])){
    </section>
 
    <section class="about">
-
-      <div class="container w-75 h-auto p-0 d-flex my-5 align-items-center shadow ripple rounded">
-
-         <div class="bg-image d-flex justify-content-center align-items-center hover-overlay col-6"
-            style="
-               background-image: url('https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/bts-header-giftcard-202206?wid=1120');
-               height: 80vh;
-               width: 30vh;
+      <div class="container card my-5 shadow">
+         <div class="row g-0">
+            <div class="col-md-6 p-0">
+               <img src="./images/clay-banks-zH9kK6wNC20-unsplash.jpg" class="img-fluid rounded-start" alt="img." 
+               style="
                background-repeat: no-repeat;
                background-size: cover;
-               background-position: center center;
-               ">
-         </div>
-
-         <div class="p-5 col-5">
-            <h2 class="text-center font-rubik pb-3 font-weight-bold text-uppercase">about us</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
-            <a href="about.php" class="btn btn-secondary text-capitalize font-rubik">read more <i class="fa-solid fa-arrow-right"></i> </a>
-         </div>
-      </div>
-   </section>
-
-   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner ">
-         <div class="carousel-item active">
-            <img src="./images/workspace.jpg" class="d-block w-100" alt="banner_1">
-            <div class="carousel-caption d-none d-md-block position-absolute">
-               <h5>First slide label</h5>
-               <p>Some representative placeholder content for the first slide.</p>
+               background-position: center center;"
+               >
+            </div>
+            <div class="col-md-6 my-auto">
+               <div class="card-body">
+                  <h1 class="card-title text-center font-rubik pb-3 font-weight-bold text-uppercase">about us</h1>
+                  <p class="card-text">
+                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum provident fugit inventore praesentium eius iure nam error quas, labore at ipsa cumque reprehenderit molestias quos ducimus temporibus accusamus, iusto accusantium ex quae. Quam recusandae fugiat ipsum magnam nesciunt cumque, earum tenetur, eos quos similique molestias modi laborum incidunt!
+                  </p>
+                  <a href="about.php" class="btn btn-secondary text-capitalize font-rubik">read more <i class="fa-solid fa-arrow-right"></i> </a>
+               </div>
             </div>
          </div>
-         <div class="carousel-item">
-            <img src="./images/store.jpg" class="d-block w-100" alt="banner_1">
          </div>
-         <div class="carousel-item">
-            <img src="./images/orders.jpg" class="d-block w-100" alt="banner_1">
-         </div>
-      </div>
-      <button class="carousel-control-prev h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="sr-only">Previous</span>
-      </button>
-      <button class="carousel-control-next h-25 bg-transparent border-0 my-auto" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="sr-only">Next</span>
-      </button>
-   </div>
+   </section>
 
    <section class="home-contact">
       <div class="container py-5">
