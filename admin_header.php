@@ -1,12 +1,27 @@
 <?php
 if(isset($message)){
    foreach($message as $message){
-      echo '
-      <div class="message">
-         <span>'.$message.'</span>
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>
-      ';
+      echo '<script>$(document).ready(function(){ $("#myModal").modal("show"); });</script>
+         <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">Alert</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  
+                  <div class="modal-body">
+                     <p>'.$message.'</p>
+                  </div>
+                  
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+         ';
    }
 }
 ?>
@@ -53,7 +68,7 @@ if(isset($message)){
                <p class="px-3 pt-3">Username : <span class="color-primary font-size-16"><?php echo $_SESSION['admin_name']; ?></span></p>
                <p class="px-3" style="margin-top:-10px;">Email : <span class="color-primary font-size-16"><?php echo $_SESSION['admin_email']; ?></span></p>
                <hr class="dropdown-divider p-0">
-               <p class="p-0 text-center font-weight-bold"><a href="logout.php" class="delete-btn text-danger text-decoration-none" >Logout</a></p>
+               <p class="p-0 text-center font-weight-bold"><a href="logout.php" class="delete-btn text-danger text-decoration-none" onclick="alert('Admin has logged out!');">Logout</a></p>
             </div>
          </div>
       </div>
