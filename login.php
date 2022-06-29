@@ -19,19 +19,25 @@ if(isset($_POST['submit'])){
          $_SESSION['admin_name'] = $row['name'];
          $_SESSION['admin_email'] = $row['email'];
          $_SESSION['admin_id'] = $row['id'];
-         header('location:admin_page.php');
+         $header = 'Login Success!';
+         $message[] = 'Welcome <b>admin</b> '.$_SESSION['admin_name'].' !';
+         $page_name = "'admin_page.php'";
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
          $_SESSION['user_email'] = $row['email'];
          $_SESSION['user_id'] = $row['id'];
-         header('location:home.php');
+         $header = 'Login Success!';
+         $message[] = 'Welcome user '.$_SESSION['user_name'].' !'; 
+         $page_name = "'home.php'";
 
       }
 
    }else{
-      $message[] = 'incorrect email or password!';
+      $header = 'Error!';
+      $message[] = 'Incorrect email or password!';
+      $page_name = "'login.php'"; 
    }
 
 }
@@ -58,14 +64,32 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
    <?php
    if(isset($message)){
       foreach($message as $message){
-         echo '
-         <div class="message">
-            <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+         echo '<script>$(document).ready(function(){ $("#myModal").modal("show"); });</script>
+         <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">'.$header.'</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  
+                  <div class="modal-body">
+                     <p>'.$message.'</p>
+                  </div>
+                  
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href='.$page_name.'">Close</button>
+                  </div>
+               </div>
+
+            </div>
          </div>
          ';
       }
@@ -96,10 +120,5 @@ if(isset($_POST['submit'])){
          </div>
       </div>
    </section>
-
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
    </body>
 </html>
