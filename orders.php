@@ -68,7 +68,16 @@ if(!isset($user_id)){
             <div class="h-100">
                <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
-               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+               <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
+               <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
+               <p  class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
+               <p  class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
+               <p  class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
+               <p  class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
+               <p  class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
+               <p  class="font-weight-bold"> Your orders : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
+               <p  class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?></span> </p>
+               <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                      <div class="modal-content">
                         <div class="modal-header">
@@ -79,15 +88,7 @@ if(!isset($user_id)){
                         </div>
 
                         <div class="modal-body">
-                           <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
-                           <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
-                           <p  class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
-                           <p  class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
-                           <p  class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
-                           <p  class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
-                           <p  class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
-                           <p  class="font-weight-bold"> Your orders : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-                           <p  class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?></span> </p>
+                           
                         </div>
 
                         <div class="modal-footer">
@@ -95,10 +96,10 @@ if(!isset($user_id)){
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
             </div>
             <p  class="font-weight-bold"> Payment status : <span class="font-weight-normal" style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">View Details</button>
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">View Details</button> -->
          </div>
          <?php
          }
