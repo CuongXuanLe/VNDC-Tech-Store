@@ -46,7 +46,7 @@ if(!isset($user_id)){
       <div class="d-flex justify-content-center align-items-center h-100">
          <div class="text-center font-weight-bold font-rubik">
             <p class="text-uppercase text-white" style="font-size: 3.5rem;">about us</p>
-            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> about </h4>
+            <h4 class="text-light"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> about </h4>
          </div>
       </div>
    <div> 
@@ -82,19 +82,19 @@ if(!isset($user_id)){
          <div class="row p-0 d-flex flex-wrap my-5 justify-content-center align-items-center">
             <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/cuong.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
-               <p><span class="font-size-20">Cuong</span><br/>Front-End Developer</p>
+               <p><span class="font-size-20">Cuong</span><br/>Dev</p>
             </div>
             <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/dan.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
-               <p><span class="font-size-20">Dan</span><br/>Back-End Developer</p>
+               <p><span class="font-size-20">Dan</span><br/>Programmer</p>
             </div>
             <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/nhut.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
-               <p><span class="font-size-20">Nhut</span><br/>Back-End Developer</p>
+               <p><span class="font-size-20">Nhut</span><br/>Coder</p>
             </div>
             <div class="col-lg-2 text-center font-rubik mx-4">
                <img src="images/vu.jpg" alt="member-1 picture" class="rounded-circle img-fluid mb-2" style="filter: grayscale(100%);">
-               <p><span class="font-size-20">Vu</span><br/>Front-End Developer</p>
+               <p><span class="font-size-20">Vu</span><br/>Developer</p>
             </div>
          </div>
       </div>

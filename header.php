@@ -52,7 +52,7 @@ if(isset($message)){
                <a class="nav-link pr-5 text-decoration-none text-dark font-rubik text-capitalize" href="shop.php">shop</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link pr-5 text-decoration-none text-dark font-rubik text-capitalize" href="contact.php">contact</a>
+               <a class="nav-link pr-5 text-decoration-none text-dark font-rubik text-capitalize" href="contact.php">connect us</a>
             </li>
             <li class="nav-item">
                <a class="nav-link pr-5 text-decoration-none text-dark font-rubik text-capitalize" href="orders.php">order</a>

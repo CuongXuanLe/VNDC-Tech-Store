@@ -36,7 +36,7 @@ if(isset($_POST['send'])){
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>contact</title>
+      <title>Feedback us</title>
 
       <!-- font awesome cdn link  -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -58,15 +58,15 @@ if(isset($_POST['send'])){
       <div style="
       background-color: rgba(0, 0, 0, 0.3);
       height: 70vh;
-      background-image: url('https://support.apple.com/content/dam/edam/applecare/images/en_US/homepage/psp-hero-banner-homepage-welcome.image.large_2x.jpg');
+      background-image: url('https://images.unsplash.com/photo-1484807352052-23338990c6c6');
       background-repeat: no-repeat;
       
       background-size: cover;
       background-position: center center;">
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-center font-weight-bold font-rubik">
-               <p class="text-uppercase text-white" style="font-size: 3.5rem;">contact us</p>
-               <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> contact </h4>
+               <p class="text-uppercase text-white" style="font-size: 3.5rem;">connect us</p>
+               <h4 class="text-light"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> contact </h4>
             </div>
          </div>
       <div>
@@ -76,10 +76,10 @@ if(isset($_POST['send'])){
       <div class="container d-flex justify-content-center my-5">
          <form action="" method="post" class="card col-lg-6 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow">
             <h4 class="text-capitalize text-center font-weight-bold mb-4">Feedback !</h3>
-            <input type="text" name="name" required placeholder="enter your name" class="px-2 py-2 border rounded border-dark mb-3">
-            <input type="email" name="email" required placeholder="enter your email" class="px-2 py-2 border rounded border-dark mb-3">
-            <input type="number" name="number" required placeholder="enter your number" class="px-2 py-2 border rounded border-dark mb-3">
-            <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="enter your feedback" id="" cols="30" rows="5"></textarea>
+            <input type="text" name="name" required placeholder="Name" class="px-2 py-2 border rounded border-dark mb-3">
+            <input type="email" name="email" required placeholder="Email" class="px-2 py-2 border rounded border-dark mb-3">
+            <input type="number" name="number" required placeholder="Number" class="px-2 py-2 border rounded border-dark mb-3">
+            <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="Feedback" id="" cols="30" rows="5"></textarea>
             <input type="submit" value="send feedback" name="send" class="btn btn-primary px-2 py-1 text-capitalize">
          </form>
       </div>

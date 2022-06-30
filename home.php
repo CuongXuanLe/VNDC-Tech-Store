@@ -63,14 +63,14 @@ if(isset($_POST['add_to_cart'])){
       <div class="mask" style="
          background-color: rgba(0, 0, 0, 0.3); 
          height: 80vh;
-         background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+         background-image: url('https://images.unsplash.com/photo-1590212151175-e58edd96185b');
          background-repeat: no-repeat;
          background-size: cover;
          background-position: center center;">
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-white text-center">
                <h1>Welcome to our Website !</h1>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quod? Reiciendis ut porro iste totam.</p>
+               <p class="text-light">Pleaseee give us good markkkkkkk!</p>
                <a href="about.php" class="btn btn-primary font-rubik">Discover more</a>
             </div>
          </div>
