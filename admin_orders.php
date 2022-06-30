@@ -72,13 +72,13 @@ if(isset($_GET['delete'])){
                <p class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
                <p class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
                <p class="font-weight-bold text-warp"> Total products : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-               <p class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+               <p class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?></span> </p>
                <p class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
             </div>
             <form action="" method="post" class="col d-flex d-flex flex-wrap justify-content-center justify-content-center">
-               <div class="row w-100 m-auto d-flex justify-content-center">
+               <div class="row w-100 m-auto d-flex justify-content-center text-center">
                   <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
-                  <select name="update_payment" class="px-5 py-2 mb-2 text-center border rounded border-dark">
+                  <select name="update_payment" class=" py-2 mb-2 text-center border rounded border-dark">
                      <option value="" selected disabled>Status: <?php echo $fetch_orders['payment_status']; ?></option>
                      <option value="pending">Changed: pending</option>
                      <option value="completed">Changed: completed</option>

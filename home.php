@@ -170,7 +170,7 @@ if(isset($_POST['add_to_cart'])){
                   while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
                      $option1 = $fetch_options['option_one'];
                      $option2 = $fetch_options['option_two'];
-                     $option3 = $fetch_options['option_three'];
+                     $option3 = $fetch_options['option_three']; 
                   }
                ?>
                <div class="row d-flex flex-wrap justify-content-center">
