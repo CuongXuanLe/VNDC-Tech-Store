@@ -121,7 +121,7 @@ if(isset($_POST['add_to_cart'])){
    <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
       <div class="row d-flex justify-content-center">
          <?php  
-            $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
+            $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
             if(mysqli_num_rows($select_products) > 0){
                while($fetch_products = mysqli_fetch_assoc($select_products)){
          ?>
