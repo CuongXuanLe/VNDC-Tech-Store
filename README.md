@@ -117,7 +117,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Open localhost/phpadmin and create a new database named shop_db, after that import file shop_db.sql from the directory
    ```sh
-   localhost/phpadmin
+   localhost/phpmyadmin
    ```
 5. Run the website on localhost 
    ```sh
