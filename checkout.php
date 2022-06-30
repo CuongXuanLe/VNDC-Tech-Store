@@ -133,12 +133,12 @@ if(isset($_POST['order_btn'])){
                   <br/>
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="name" required placeholder="Full-name">
                </div>
-               <div class="py-4 row-md d-flex flex-wrap">
+               <div class="py-1 row-md d-flex flex-wrap">
                   <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Number <span class="text-danger">*</span></span>
                   <br/>
                   <input class="col-lg-8 py-2 border rounded border-dark" type="number" name="number" required placeholder="(000) 000 0000">
                </div>
-               <div class="py-4 row-md d-flex flex-wrap">
+               <div class="py-1 row-md d-flex flex-wrap">
                   <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Email <span class="text-danger">*</span></span>
                   <br/>
                   <input class="col-lg-8 py-2 border rounded border-dark" type="email" name="email" required placeholder="abc@gmail.com">

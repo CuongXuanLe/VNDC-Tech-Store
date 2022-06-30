@@ -48,12 +48,11 @@
     <!-- Section: Links -->
     <section class="link">
       <!--Grid row-->
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase">Website</h5>
-
-          <ul class=" list-unstyled mb-0">
+          <ul class="list-unstyled mb-0">
             <li>
               <a href="home.php" class="text-white text-decoration-none">Home</a>
             </li>
