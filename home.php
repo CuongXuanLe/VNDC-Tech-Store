@@ -78,8 +78,6 @@ if(isset($_POST['add_to_cart'])){
             </div>
          </div>
       </div>
-
-
    </section>
 
    <section class="carousel py-5">

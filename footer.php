@@ -48,45 +48,13 @@
     <!-- Section: Links -->
     <section class="link">
       <!--Grid row-->
-      <div class="row d-flex justify-content-center">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Website</h5>
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="home.php" class="text-white text-decoration-none">Home</a>
-            </li>
-            <li>
-              <a href="about.php" class="text-white text-decoration-none">About</a>
-            </li>
-            <li>
-              <a href="shop.php" class="text-white text-decoration-none">Shop</a>
-            </li>
-            <li>
-              <a href="contact.php" class="text-white text-decoration-none">Connect Us</a>
-            </li>
-          </ul>
-        </div>
+      <div class="row d-flex justify-content-around">
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Shopping</h5>
+        <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-left list-inline">Contact info</h5>
 
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="cart.php" class="text-white text-decoration-none">Cart</a>
-            </li>
-            <li>
-              <a href="orders.php" class="text-white text-decoration-none">Orders</a>
-            </li>
-          </ul>
-        </div>
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Contact info</h5>
-
-          <ul class="list-unstyled mb-0">
+          <ul class="text-left list-inline mb-0">
             <li>
                <i class="fas fa-phone"></i> +840-4607-915
             </li>
@@ -103,10 +71,10 @@
         </div>
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Follow us</h5>
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-left list-inline">Follow us</h5>
 
-          <ul class="list-unstyled mb-0">
+          <ul class="text-left list-inline mb-0">
             <li>
                <a class=" text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
             </li>
