@@ -68,8 +68,6 @@ if(!isset($user_id)){
             <div class="h-100">
                <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
-               <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
-               <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
                <p  class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
                <p  class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
                <p  class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
