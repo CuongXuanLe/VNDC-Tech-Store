@@ -81,7 +81,7 @@
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">quick links</h5>
+          <h5 class="text-uppercase">Website</h5>
 
           <ul class=" list-unstyled mb-0">
             <li>
@@ -101,15 +101,9 @@
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">extra links</h5>
+          <h5 class="text-uppercase">Shopping</h5>
 
           <ul class="list-unstyled mb-0">
-            <li>
-              <a href="login.php" class="text-white text-decoration-none">Login</a>
-            </li>
-            <li>
-              <a href="register.php" class="text-white text-decoration-none">Register</a>
-            </li>
             <li>
               <a href="cart.php" class="text-white text-decoration-none">Cart</a>
             </li>

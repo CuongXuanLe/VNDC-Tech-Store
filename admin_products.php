@@ -195,7 +195,7 @@ if(isset($_POST['update_product'])){
             <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
             <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
             <div class="py-auto">
-               <img class="img d-block w-100 mb-3" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
+               <img class="img d-block w-100 mb-3" src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="product">
             </div>
             <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="px-2 py-2 border rounded border-dark mb-2 text-capitalize" required placeholder="enter product name">
             <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="px-2 py-2 border rounded border-dark mb-2" required placeholder="enter product price">

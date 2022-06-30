@@ -74,7 +74,6 @@ if(isset($_GET['delete_all'])){
    </section>
 
    <section class="shopping-cart">
-
       <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products added</h1>
       <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
          <div class="row d-flex justify-content-center">
@@ -87,7 +86,7 @@ if(isset($_GET['delete_all'])){
          <div class="card col-lg-3 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mb-4 mx-3">
             <a href="cart.php?delete=<?php echo $fetch_cart['id']; ?>" class="fas fa-times position-absolute" style="top:7px; right:7px" onclick="return confirm('delete this from cart?');"></a>
             <div class="my-auto">
-               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="">
+               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="product">
             </div>
             <div class="font-size-20 text-capitalize my-2"><?php echo $fetch_cart['nameWithOption']; ?></div>
             <div class="font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>

@@ -64,7 +64,6 @@ if(isset($_POST['add_to_cart'])){
    height: 90vh;
    background-image: url('https://images.unsplash.com/photo-1578258789061-354f25c13631');
    background-repeat: no-repeat;
-   
    background-size: cover;
    background-position: center center;">
       <div class="d-flex justify-content-center align-items-center h-100">
@@ -128,7 +127,7 @@ if(isset($_POST['add_to_cart'])){
          ?>
          <form action="" method="post" class="card col-lg-3 p-4 font-rubik border rounded border-dark shadow m-3">
             <div class="my-auto">
-               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="product">
             </div> 
             <div class="font-weight-bold font-size-20 text-capitalize my-2"><?php echo $fetch_products['name']; ?></div>
             <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>

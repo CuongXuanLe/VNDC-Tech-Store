@@ -97,7 +97,6 @@ if(isset($_GET['delete'])){
          }
          ?>
       </div>
-
    </section>
    </body>
 </html>
