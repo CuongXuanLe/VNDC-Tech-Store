@@ -94,43 +94,43 @@ if(isset($_POST['add_to_cart'])){
             <div class="carousel-item active">
                <img src="./images/iphone.jpg" class="d-block w-100" alt="banner_1">
                <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5>Iphone 13 Pro Max</h5>
+                  <p>A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The worlds fastest smartphone chip. Exceptional durability. And a huge leap in battery life.</p>
                </div>
             </div>
             <div class="carousel-item">
                <img src="./images/iphone2.jpg" class="d-block w-100" alt="banner_1">
                <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5>Iphone 12</h5>
+                  <p>Our Pro camera system gets its biggest upgrade ever. With next-level hardware that captures so much more detail. Superintelligent software for new photo and filmmaking techniques.</p>
                </div>
             </div>
             <div class="carousel-item">
                <img src="./images/iphone3.jpg" class="d-block w-100" alt="banner_1">
-               <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+               <div class="carousel-caption d-none d-md-block position-absolute text-dark">
+                  <h5>Iphone 13 Pro Max</h5>
+                  <p>A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The worlds fastest smartphone chip. Exceptional durability. And a huge leap in battery life.</p>
                </div>
             </div>
             <div class="carousel-item">
                <img src="./images/iphone4.jpg" class="d-block w-100" alt="banner_1">
                <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>fourth  slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5>Iphone 13 Pro Max</h5>
+                  <p>A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The worlds fastest smartphone chip. Exceptional durability. And a huge leap in battery life.</p>
                </div>
             </div>
             <div class="carousel-item">
                <img src="./images/iphone5.jpg" class="d-block w-100" alt="banner_1">
                <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>Fifth slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5>Iphone 13 Pro Max</h5>
+                  <p>A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The worlds fastest smartphone chip. Exceptional durability. And a huge leap in battery life.</p>
                </div>
             </div>
             <div class="carousel-item">
                <img src="./images/laptop.jpg" class="d-block w-100" alt="banner_1">
                <div class="carousel-caption d-none d-md-block position-absolute">
-                  <h5>Sixth slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h5>Macbook Pro</h5>
+                  <p>Our most powerful notebooks. Fast M1 processors, incredible graphics, and spectacular Retina displays. Now available in a 14-inch model.</p>
                </div>
             </div>
             
@@ -217,7 +217,7 @@ if(isset($_POST['add_to_cart'])){
                <div class="card-body">
                   <h1 class="card-title text-center font-rubik pb-3 font-weight-bold text-uppercase">about us</h1>
                   <p class="card-text">
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum provident fugit inventore praesentium eius iure nam error quas, labore at ipsa cumque reprehenderit molestias quos ducimus temporibus accusamus, iusto accusantium ex quae. Quam recusandae fugiat ipsum magnam nesciunt cumque, earum tenetur, eos quos similique molestias modi laborum incidunt!
+                  This is an e-commerce site used to sell technology or related products. VNDC Tech aims to improve user experience, easy to manage and user-friendly. We are constantly upgrading as well as expanding the quantity and quality of products currently sold on the shop
                   </p>
                   <a href="about.php" class="btn btn-secondary text-capitalize font-rubik">read more <i class="fa-solid fa-arrow-right"></i> </a>
                </div>

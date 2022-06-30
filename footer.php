@@ -4,35 +4,7 @@
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
-      <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
+      <h2 class="text-center font-rubik font-weight-bold text-capitalize">VNDC Tech</h2>
     </section>
 
     <!-- Section: Form -->
@@ -69,9 +41,7 @@
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      This is an e-commerce site used to sell technology or related products. VNDC Tech aims to improve user experience, easy to manage and user-friendly. We are constantly upgrading as well as expanding the quantity and quality of products currently sold on the shop
       </p>
     </section>
 
@@ -94,7 +64,7 @@
               <a href="shop.php" class="text-white text-decoration-none">Shop</a>
             </li>
             <li>
-              <a href="contact.php" class="text-white text-decoration-none">Contact</a>
+              <a href="contact.php" class="text-white text-decoration-none">Connect Us</a>
             </li>
           </ul>
         </div>
@@ -142,13 +112,13 @@
                <a class=" text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
             </li>
             <li>
-               <a class="text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-twitter"></i> twitter </a>
+               <a class="text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-google"></i> gmail </a>
             </li>
             <li>
                <a class="text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-instagram"></i> instagram </a>
             </li>
             <li>
-               <a class="text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+               <a class="text-decoration-none text-capitalize text-white " href="#"> <i class="fab fa-github"></i> GitHub </a>
             </li> 
           </ul>
         </div>

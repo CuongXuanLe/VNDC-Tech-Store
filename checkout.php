@@ -126,40 +126,28 @@ if(isset($_POST['order_btn'])){
    <section class="container p-5 d-flex justify-content-center">
       <form action="" method="post" class="col-lg-8 card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
          <h3 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Place your order</h3>
-         <div class="row d-flex justify-content-center m-auto flex-wrap">
-            <div class="col-lg-6">
+         <div class="row d-flex justify-content-center flex-wrap">
+            <div class="col-lg">
                <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Your Name :</span>
+                  <span class="font-weight-bold font-size-16 text-capitalize">Your Name <span class="text-danger">*</span></span>
                   <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="name" required placeholder="enter your name">
+                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="name" required placeholder="Full-name">
                </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Your Number :</span>
+               <div class="py-4 row-md d-flex flex-wrap">
+                  <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Number <span class="text-danger">*</span></span>
                   <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" name="number" required placeholder="enter your number">
+                  <input class="col-lg-8 py-2 border rounded border-dark" type="number" name="number" required placeholder="(000) 000 0000">
                </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Your Email :</span>
+               <div class="py-4 row-md d-flex flex-wrap">
+                  <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Email <span class="text-danger">*</span></span>
                   <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="email" name="email" required placeholder="enter your email">
+                  <input class="col-lg-8 py-2 border rounded border-dark" type="email" name="email" required placeholder="abc@gmail.com">
                </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Payment Method :</span>
-                  <br/>
-                  <select name="method" class="w-100 px-2 py-2 border rounded border-dark">
-                     <option value="cash on delivery">cash on delivery</option>
-                     <option value="credit card">credit card</option>
-                     <option value="paypal">paypal</option>
-                     <option value="paytm">paytm</option>
-                  </select>
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Flat/House Number:</span>
+               <div class="py-1 row-md d-flex flex-wrap">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Address <span class="text-danger">*</span></span>
                   <br/>
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
                </div>
-            </div>
-            <div class="col-lg-6">
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
                   <br/>
@@ -180,14 +168,45 @@ if(isset($_POST['order_btn'])){
                   <br/>
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="country" required placeholder="e.g. india">
                </div>
-               <div class="py-1 mb-5">
+               <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">pin code :</span>
                   <br/>
                   <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
                </div>
+               <div class="py-1">
+                  <span class="font-weight-bold font-size-16 text-capitalize">Payment Method :</span>
+                  <br/>
+                  <select name="method" class="w-100 px-2 py-2 border rounded border-dark">
+                     <option value="cash on delivery">cash on delivery</option>
+                     <option value="credit card">credit card</option>
+                     <option value="paypal">paypal</option>
+                     <option value="paytm">paytm</option>
+                  </select>
+               </div>
             </div>
             </div>
-            <input type="submit" value="order now" class="btn btn-danger text-capitalize w-50 m-auto " name="order_btn">
+            <hr class="dropdown-divider px-0 py-2">
+            <input type="submit" value="order now" class="btn btn-success text-capitalize w-50 mx-auto" data-toggle="modal" data-target="#exampleModal" name="order_btn">
+
+            <!-- Modal order success-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Order Successfully</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  <div class="modal-body text-center">
+                   <h2><i class="fa-solid fa-circle-check text-success fa-5x"></i></h2>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal"><a href="orders.php" class="text-white text-decoration-none">Check!</a></button>
+                  </div>
+               </div>
+            </div>
+            </div>
          </form>
          
    </section>
