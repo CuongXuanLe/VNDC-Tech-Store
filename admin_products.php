@@ -145,7 +145,7 @@ if(isset($_POST['update_product'])){
 
    <section class="show-products">
 
-      <div class="container d-flex flex-wrap justify-content-center">
+      <div class="container d-flex flex-wrap justify-content-center" >
          <?php
             $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
             if(mysqli_num_rows($select_products) > 0){
@@ -155,9 +155,9 @@ if(isset($_POST['update_product'])){
             <div class=" my-auto">
                <img class="img d-block w-100" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
             </div>
-            <div class="name text-capitalize"><?php echo $fetch_products['name']; ?></div>
-            <div class="price">$<?php echo $fetch_products['price']; ?></div>
-            <div class="name text-capitalize"><?php echo $fetch_products['sold']; ?> units sold</div>
+            <div class="name text-capitalize"style="font-size: 1.5rem;"><?php echo $fetch_products['name']; ?></div>
+            <div class="price font-weight-bold">Price: <span class="font-weight-normal text-success"><?php echo $fetch_products['price']; ?></span><span class="pl-1 font-weight-normal">VND</span></div>
+            <div class="name text-capitalize">units sold: <span class="text-success"><?php echo $fetch_products['sold']; ?></span></div>
             <div class="row d-flex flex-wrap justify-content-center">
                <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="col-md-5 btn btn-primary m-1 p-0 text-capitalize">update</a>
                <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="col-md-5 btn btn-danger m-1 p-0 text-capitalize" onclick="return confirm('delete this product?');">delete</a>

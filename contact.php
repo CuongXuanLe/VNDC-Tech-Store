@@ -66,7 +66,6 @@ if(isset($_POST['send'])){
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-center font-weight-bold font-rubik">
                <p class="text-uppercase text-white" style="font-size: 3.5rem;">connect us</p>
-               <h4 class="text-light"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> contact </h4>
             </div>
          </div>
       <div>

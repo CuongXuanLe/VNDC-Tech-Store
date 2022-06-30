@@ -96,14 +96,13 @@ if(isset($_POST['order_btn'])){
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-center font-weight-bold font-rubik">
                <p class="text-uppercase text-white" style="font-size: 3.5rem;">checkout</p>
-               <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> checkout </h4>
             </div>
          </div>
       <div>
    </section>
 
    <section class="container d-flex justify-content-center mt-5">
-      <div class="card d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow mx-3">
+      <div class="col-md-6 card d-flex justify-content-center text-center p-4 font-rubik border rounded border-dark shadow mx-3">
          <?php  
             $grand_total = 0;
             $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
@@ -112,14 +111,14 @@ if(isset($_POST['order_btn'])){
                   $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
                   $grand_total += $total_price;
          ?>
-         <p> <?php echo $fetch_cart['nameWithOption']; ?> <span>(<?php echo '$'.$fetch_cart['price'].' x '. $fetch_cart['quantity']; ?>)</span> </p>
+         <h4><span class="font-weight-bold">Items:</span> <?php echo $fetch_cart['nameWithOption']; ?> <span>(<?php echo '$'.$fetch_cart['price'].' x '. $fetch_cart['quantity']; ?>)</span> </h4>
          <?php
             }
          }else{
             echo '<p class="empty">your cart is empty</p>';
          }
          ?>
-         <div class="font-weight-bold font-size-16 text-capitalize text-center font-size-20"> grand total : <span class="text-danger">$<?php echo $grand_total; ?></span> </div>
+         <div class="font-weight-bold text-capitalize text-center" style="font-size: 1.7rem;"> total : <span class="text-success">$<?php echo $grand_total; ?></span> </div>
       </div>
    </section>
 
@@ -136,42 +135,26 @@ if(isset($_POST['order_btn'])){
                <div class="py-1 row-md d-flex flex-wrap">
                   <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Number <span class="text-danger">*</span></span>
                   <br/>
-                  <input class="col-lg-8 py-2 border rounded border-dark" type="number" name="number" required placeholder="(000) 000 0000">
+                  <input class="col-lg-8 my-2 py-2 border rounded border-dark" type="number" name="number" required placeholder="(000) 000 0000">
                </div>
                <div class="py-1 row-md d-flex flex-wrap">
                   <span class="col-lg-4 font-weight-bold font-size-16 text-capitalize my-auto p-0">Your Email <span class="text-danger">*</span></span>
                   <br/>
-                  <input class="col-lg-8 py-2 border rounded border-dark" type="email" name="email" required placeholder="abc@gmail.com">
+                  <input class="col-lg-8 my-2 py-2 border rounded border-dark" type="email" name="email" required placeholder="abc@gmail.com">
                </div>
-               <div class="py-1 row-md d-flex flex-wrap">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Address <span class="text-danger">*</span></span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="e.g. flat no.">
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Street Name :</span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="street" required placeholder="e.g. street name">
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">City :</span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="city" required placeholder="e.g. mumbai">
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">State :</span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="state" required placeholder="e.g. maharashtra">
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">Country :</span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="text" name="country" required placeholder="e.g. india">
-               </div>
-               <div class="py-1">
-                  <span class="font-weight-bold font-size-16 text-capitalize">pin code :</span>
-                  <br/>
-                  <input class="w-100 px-2 py-2 border rounded border-dark" type="number" min="0" name="pin_code" required placeholder="e.g. 123456">
+               <span class="font-weight-bold font-size-16 text-capitalize pr-3">Address <span class="text-danger">*</span></span>
+               <div class="py-1 row-md d-flex flex-wrap" style="justify-content: space-around">
+
+                  <div class="col-xl-5 p-0">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="number" min="0" name="flat" required placeholder="flat">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="text" name="street" required placeholder="street">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="text" name="city" required placeholder="city">
+                  </div>
+                  <div class="col-xl-5 p-0">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="text" name="state" required placeholder="state">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="text" name="country" required placeholder="country">
+                     <input class="w-100 my-2 px-2 py-2 border rounded border-dark" type="number" min="0" name="pin_code" required placeholder="pincode">
+                  </div>
                </div>
                <div class="py-1">
                   <span class="font-weight-bold font-size-16 text-capitalize">Payment Method :</span>

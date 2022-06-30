@@ -51,10 +51,10 @@ if(isset($_GET['delete'])){
          ?>
          <div class="card col-lg-3 px-3 py-3 border border-4 rounded border-danger m-3 font-rubik position-static shadow font-size-16">
             <div class="h-100">
+               <p class="font-weight-bold text-capitalize"> user type : <span class="font-weight-normal" style="color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'var(--orange)'; } ?>"><?php echo $fetch_users['user_type']; ?></span> </p>
                <p class="font-weight-bold text-capitalize"> user id : <span class="font-weight-normal"><?php echo $fetch_users['id']; ?></span> </p>
                <p class="font-weight-bold"> username : <span class="font-weight-normal"><?php echo $fetch_users['name']; ?></span> </p>
                <p class="font-weight-bold"> email : <span class="font-weight-normal text-danger"><?php echo $fetch_users['email']; ?></span> </p>
-               <p class="font-weight-bold text-capitalize"> user type : <span class="font-weight-normal" style="color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'var(--orange)'; } ?>"><?php echo $fetch_users['user_type']; ?></span> </p>
             </div>
             <div class="btn btn-danger "><a href="admin_users.php?delete=<?php echo $fetch_users['id']; ?>" onclick="return confirm('delete this user?');" class="text-white text-decoration-none text-capitalize">delete user</a></div>
          </div>

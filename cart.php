@@ -67,14 +67,13 @@ if(isset($_GET['delete_all'])){
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-center font-weight-bold font-rubik">
                <p class="text-uppercase text-white" style="font-size: 3.5rem;">shopping cart</p>
-               <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> cart </h4>
             </div>
          </div>
       <div>
    </section>
 
    <section class="shopping-cart">
-      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">products added</h1>
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase">Items in cart</h1>
       <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
          <div class="row d-flex justify-content-center">
          <?php
@@ -88,14 +87,16 @@ if(isset($_GET['delete_all'])){
             <div class="my-auto">
                <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_cart['image']; ?>" alt="product">
             </div>
-            <div class="font-size-20 text-capitalize my-2"><?php echo $fetch_cart['nameWithOption']; ?></div>
-            <div class="font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_cart['price']; ?></div>
+            <div class="row d-flex px-3" style="justify-content: space-between">
+               <div class="font-weight-bold text-capitalize my-1"  style="font-size:1.6rem"><?php echo $fetch_cart['nameWithOption']; ?></div>
+               <div class="font-weight-bold font-size-20 text-white text-danger my-1"><span class="text-dark pr-2">Price:</span><?php echo $fetch_cart['price']; ?> VND</div>
+            </div>
             <form action="" method="post" class="">
                <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
                <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>" class="px-2 py-2 border rounded border-dark col-12 mb-3">
                <input type="submit" name="update_cart" value="update" class="btn btn-warning col-12 font-rubik text-capitalize text-dark">
             </form>
-            <div class="font-weight-bold font-size-20 text-capitalize text-center mt-4"> sub total : <span class="text-danger">$<?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?></span> </div>
+            <div class="font-weight-bold font-size-20 text-capitalize border border-dark py-2 rounded text-center mt-4">total : <span class="text-danger"><?php echo $sub_total = ($fetch_cart['quantity'] * $fetch_cart['price']); ?> VND</span> </div>
          </div>
          <?php
          $grand_total += $sub_total;
@@ -107,16 +108,11 @@ if(isset($_GET['delete_all'])){
          </div>
       </div>
 
-      <div style="margin-top: 2rem; text-align:center;">
-         <a href="cart.php?delete_all" class="btn btn-danger text-capitalize <?php echo ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">delete all</a>
-      </div>
-
       <div class="container py-5">
-         <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-auto my-4 font-rubik position-static shadow">
-            <p class="text-center font-size-20 text-capitalize">grand total : <span class="text-danger">$<?php echo $grand_total; ?></span></p>
+         <div class="col-lg-5 px-3 py-3 m-auto my-4 font-rubik position-static shadow">
+            <p class="text-centertext-capitalize font-rubik text-center"style="font-size: 2rem" >Total: <span class="text-danger"><?php echo $grand_total; ?> VND</span></p>
             <div class="d-flex justify-content-center">
-               <a href="shop.php" class="btn btn-dark mx-2 text-capitalize">continue shopping</a>
-               <a href="checkout.php" class="btn btn-success mx-2 text-capitalize <?php echo ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+               <a href="checkout.php" class="btn btn-success w-100 mx-2 px-5 text-capitalize d-flex justify-content-center align-items-center <?php echo ($grand_total > 1)?'':'disabled'; ?>">checkout</a>
             </div>
          </div>
       </div>

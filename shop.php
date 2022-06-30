@@ -69,7 +69,6 @@ if(isset($_POST['add_to_cart'])){
       <div class="d-flex justify-content-center align-items-center h-100">
          <div class="text-center font-weight-bold font-rubik">
             <p class="text-uppercase text-white" style="font-size: 3.5rem;">our shop</p>
-            <h4 class="text-dark"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> shop </h4>
          </div>
       </div>
    <div>
@@ -79,7 +78,7 @@ if(isset($_POST['add_to_cart'])){
 <section>
    <div class="style">
       <div class="container pt-5">
-      <h1 class="text-start font-rubik py-2 text-capitalize">Lastest product</h1>
+      <h1 class="text-start font-rubik py-2 text-capitalize">new release</h1>
          <div class="row slider">
             <div class="col-md-12 text-center">
                <div class="item">
@@ -117,53 +116,57 @@ if(isset($_POST['add_to_cart'])){
 </section>
 
 <section class="products">
-   <h1 class="text-center font-rubik pt-5 pb-2 font-weight-bold text-uppercase"> products</h1>
-   <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
-      <div class="row d-flex justify-content-center">
-         <?php  
-            $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 6") or die('query failed');
-            if(mysqli_num_rows($select_products) > 0){
-               while($fetch_products = mysqli_fetch_assoc($select_products)){
-         ?>
-         <form action="" method="post" class="card col-lg-3 p-4 font-rubik border rounded border-dark shadow m-3">
-            <div class="my-auto">
-               <img class="image d-block w-100" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="product">
-            </div> 
-            <div class="font-weight-bold font-size-20 text-capitalize my-2"><?php echo $fetch_products['name']; ?></div>
-            <div class="font-weight-bold font-size-20 text-white position-absolute btn btn-danger py-1" style="top:5px; left:5px">$<?php echo $fetch_products['price']; ?></div>
-            <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
-            <?php
-               $item_id = $fetch_products['id'];
-               $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
-               while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
-                  $option1 = $fetch_options['option_one'];
-                  $option2 = $fetch_options['option_two'];
-                  $option3 = $fetch_options['option_three'];
-               }
+
+      <h1 class="text-center font-rubik py-5 font-weight-bold text-uppercase"> products</h1>
+
+      <div class="container d-flex flex-wrap justify-content-center align-items-center mb-5">
+         <div class="row d-flex justify-content-center">
+            <?php  
+               $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
+               if(mysqli_num_rows($select_products) > 0){
+                  while($fetch_products = mysqli_fetch_assoc($select_products)){
             ?>
-            <div class="row d-flex flex-wrap justify-content-center">
-               <p class="my-auto mr-2 font-weight-bold">Color:</p>
-                  <!-- Dropdown options -->
-                  <select name="product_option" id="product_option" class="border rounded border-dark w-50 py-2 px-2">
-                     <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
-                     <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
-                     <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
-                  </select>
-            </div>
-            <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
-            <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
-            <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
-            <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
-         </form>
-         <?php
+            <form action="" method="post" class="card col-lg-3 p-4 font-rubik border border-dark shadow m-3">
+               <div class=" my-auto">
+                  <img class="image d-block w-100 " src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="product">
+               </div> 
+               <div class="row d-flex px-3" style="justify-content: space-between">
+                  <div class="font-weight-bold text-capitalize my-2" style="font-size:1.5rem"><?php echo $fetch_products['name']; ?></div>
+                  <div class="font-weight-bold font-size-20 text-white my-auto text-danger my-2"><?php echo $fetch_products['price']; ?><span class="pl-1">VND</span></div>
+               </div>
+               <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
+               <?php
+                  $item_id = $fetch_products['id'];
+                  $select_products_opt = mysqli_query($conn, "SELECT * FROM `product_opts` WHERE product_id = '$item_id'") or die('query failed');
+                  while($fetch_options = mysqli_fetch_assoc($select_products_opt)){
+                     $option1 = $fetch_options['option_one'];
+                     $option2 = $fetch_options['option_two'];
+                     $option3 = $fetch_options['option_three']; 
+                  }
+               ?>
+               <div class="row d-flex flex-wrap justify-content-center">
+                  <p class="my-auto mr-2 font-weight-bold">Color:</p>
+                     <!-- Dropdown options -->
+                     <select name="product_option" id="product_option" class="border rounded border-dark w-50 py-2 px-2">
+                        <option value="<?php echo $option1; ?>"><?php echo $option1; ?></option>
+                        <option value="<?php echo $option2; ?>"><?php echo $option2; ?></option>
+                        <option value="<?php echo $option3; ?>"><?php echo $option3; ?></option>
+                     </select>
+               </div>
+               <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
+               <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
+               <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+               <input type="submit" value="add to cart" name="add_to_cart" class="btn btn-primary text-capitalize mt-3">
+            </form>
+            <?php
+               }
+            }else{
+               echo '<p class="empty">no products added yet!</p>';
             }
-         }else{
-            echo '<p class="empty">no products added yet!</p>';
-         }
-         ?>
+            ?>
+         </div>
       </div>
-   </div>
-</section>
+   </section>
 
 <!-- carousel -->
 <section>

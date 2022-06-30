@@ -47,7 +47,6 @@ if(!isset($user_id)){
          <div class="d-flex justify-content-center align-items-center h-100">
             <div class="text-center font-weight-bold font-rubik">
                <p class="text-uppercase text-white" style="font-size: 3.5rem;">your orders</p>
-               <h4 class="text-light"><a href="home.php" class="text-decoration-none text-white text-uppercase" style="font-weight:600" >home /</a> orders </h4>
             </div>
          </div>
       <div>
@@ -55,7 +54,7 @@ if(!isset($user_id)){
 
    <section class="placed-orders ">
 
-      <h1 class="text-center font-rubik pt-4 font-weight-bold text-uppercase">placed orders</h1>
+      <h1 class="text-center font-rubik pt-4 font-weight-bold text-uppercase">orders</h1>
 
       <div class="container d-flex flex-wrap justify-content-center">
 
@@ -70,13 +69,13 @@ if(!isset($user_id)){
                   <p  class="font-weight-bold col-md-4"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
                   <p  class="font-weight-bold col-md-6"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
                </div>
+               <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p  class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
                <p  class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
                <p  class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
                <p  class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
-               <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p  class="font-weight-bold"> Your orders : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-               <p  class="font-weight-bold"> Total price : <span class="font-weight-bold text-success">$<?php echo $fetch_orders['total_price']; ?></span> </p>
+               <p  class="font-weight-bold"> Total price : <span class="font-weight-bold text-success"><?php echo $fetch_orders['total_price']; ?><span class="pl-1">VND</span></span> </p>
             </div>
             <hr class="dropdown-divider p-0">
             <p class="font-weight-bold text-center my-auto"> Payment status : <span class="font-weight-bold text-capitalize" style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>

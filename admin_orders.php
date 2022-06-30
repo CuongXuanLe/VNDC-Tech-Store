@@ -64,16 +64,18 @@ if(isset($_GET['delete'])){
          ?>
          <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-4 font-rubik position-static shadow">
             <div class="h-100">
-               <p class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
                <p class="font-weight-bold"> User ID : <span class="font-weight-normal"><?php echo $fetch_orders['user_id']; ?></span> </p>
-               <p class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
-               <p class="font-weight-bold"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
-               <p class="font-weight-bold"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
+               <div class="row">
+                  <p class="font-weight-bold col-md-4"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
+                  <p class="font-weight-bold col-md-6"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
+               </div>
                <p class="font-weight-bold"> Email : <span class="font-weight-normal"><?php echo $fetch_orders['email']; ?></span> </p>
+               <p class="font-weight-bold"> Placed on : <span class="font-weight-normal"><?php echo $fetch_orders['placed_on']; ?></span> </p>
                <p class="font-weight-bold"> Address : <span class="font-weight-normal"><?php echo $fetch_orders['address']; ?></span> </p>
-               <p class="font-weight-bold text-warp"> Total products : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
-               <p class="font-weight-bold"> Total price : <span class="font-weight-normal">$<?php echo $fetch_orders['total_price']; ?></span> </p>
                <p class="font-weight-bold"> Payment method : <span class="font-weight-normal"><?php echo $fetch_orders['method']; ?></span> </p>
+               <p class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>
+               <p class="font-weight-bold text-warp"> Total products : <span class="font-weight-normal"><?php echo $fetch_orders['total_products']; ?></span> </p>
+               <p class="font-weight-bold"> Total price : <span class="font-weight-normal text-success"><?php echo $fetch_orders['total_price']; ?><span class="pl-1 font-weight-normal">VND</span></span> </p>
             </div>
             <form action="" method="post" class="col d-flex d-flex flex-wrap justify-content-center justify-content-center">
                <div class="row w-100 m-auto d-flex justify-content-center text-center">
