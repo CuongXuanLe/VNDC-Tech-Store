@@ -107,8 +107,8 @@ if(isset($_POST['submit'])){
                   <span class="h3 font-rubik mb-0 font-weight-600">VNDC Tech</span>
                </div>
                <div class="d-flex p-5 ml-4 ms-xl-4 mt-5 pt-5 pt-xl-5" style="max-width: 40rem;">
-                     <form action="" method="post" class="card shadow-lg w-100 p-3 border border-dark text-center">
-                        <h3 class="m-auto pb-4 font-rubik">Login now</h2>
+                     <form action="login" method="post" class="card shadow-lg w-100 p-3 border border-dark text-center">
+                        <h3 class="m-auto pb-4 font-rubik">Login now</h3>
                         <input type="email" name="email" placeholder="enter your email" required class="box mx-4 p-2 mb-3 border rounded border-dark">
                         <input type="password" name="password" placeholder="enter your password" required class="box mx-4 mb-3 p-2 border rounded border-dark">
                         <input type="submit" name="submit" value="Login" class="font-baloo btn btn-dark w-25 m-auto  color-white">
