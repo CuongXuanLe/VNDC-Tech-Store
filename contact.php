@@ -73,11 +73,13 @@ if(isset($_POST['send'])){
 
    <section class="py-auto">
       <div class="container d-flex justify-content-center my-5">
-         <form action="" method="post" class="card col-lg-6 d-flex justify-content-center p-4 font-rubik border rounded border-dark shadow">
+         <form action="" method="post" class=" card border-0 col-lg-6 d-flex justify-content-center p-4 font-rubik ">
             <h4 class="text-capitalize text-center font-weight-bold mb-4">Feedback !</h3>
-            <input type="text" name="name" required placeholder="Name" class="px-2 py-2 border rounded border-dark mb-3">
+            <div class="col p-0 d-flex" style="justify-content: space-between">
+               <input type="text" name="name" required placeholder="Name" class="px-2 py-2 border rounded border-dark mb-3 col-md-5">
+               <input type="number" name="number" required placeholder="Number" class="px-2 py-2 border rounded border-dark mb-3 col-md-6">
+            </div>
             <input type="email" name="email" required placeholder="Email" class="px-2 py-2 border rounded border-dark mb-3">
-            <input type="number" name="number" required placeholder="Number" class="px-2 py-2 border rounded border-dark mb-3">
             <textarea name="message" class="px-2 py-2 border rounded border-dark mb-3" placeholder="Feedback" id="" cols="30" rows="5"></textarea>
             <input type="submit" value="send feedback" name="send" class="btn btn-primary px-2 py-1 text-capitalize">
          </form>

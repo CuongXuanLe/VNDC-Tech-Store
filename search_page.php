@@ -104,7 +104,7 @@ if(isset($_POST['add_to_cart'])){
                   echo '<p class="empty font-weight-bold font-size-20 text-capitalize text-danger">no result found!</p>';
                }
             }else{
-               echo '<p class="empty font-size-20 text-capitalize">search something!</p>';
+               echo '<p class="empty font-size-20 text-capitalize">Every Web Has Its Stupid scriptkiddie</p>';
             }
          ?>
       </div>
