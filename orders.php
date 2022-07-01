@@ -66,7 +66,7 @@ if(!isset($user_id)){
          <div class="card col-lg-5 px-3 py-3 border rounded border-dark m-4 font-rubik shadow">
             <div class="h-100 col">
                <div class="row">
-                  <p  class="font-weight-bold col-md-4"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
+                  <p  class="font-weight-bold col-md-5"> Name : <span class="font-weight-normal"><?php echo $fetch_orders['name']; ?></span> </p>
                   <p  class="font-weight-bold col-md-6"> Number : <span class="font-weight-normal"><?php echo $fetch_orders['number']; ?></span> </p>
                </div>
                <p  class="font-weight-bold"> Order ID : <span class="font-weight-normal text-danger"><?php echo $fetch_orders['order_id']; ?></span> </p>

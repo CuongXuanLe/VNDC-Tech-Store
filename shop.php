@@ -132,7 +132,7 @@ if(isset($_POST['add_to_cart'])){
                </div> 
                <div class="row d-flex px-3" style="justify-content: space-between">
                   <div class="font-weight-bold text-capitalize my-2" style="font-size:1.5rem"><?php echo $fetch_products['name']; ?></div>
-                  <div class="font-weight-bold font-size-20 text-white my-auto text-danger my-2"><?php echo $fetch_products['price']; ?><span class="pl-1">VND</span></div>
+                  <div class="font-weight-bold font-size-20 text-white my-auto text-danger my-2">Price: <?php echo $fetch_products['price']; ?><span class="pl-1">VND</span></div>
                </div>
                <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
                <?php

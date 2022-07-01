@@ -74,10 +74,12 @@ if(isset($_POST['add_to_cart'])){
          <div class="d-flex justify-content-start align-items-center h-100">
             <div class="text-white col-md-5 ml-4">
                <p class="text-weight-bold text-uppercase" style="font-size: 3rem; font-weight:700">welcome to VNDC tech store</p>
-               <p class="text-light">Pleaseee give us good markkkkkkk!</p>
+               <p class="text-light">Every masterpiece has its cheap copy hehe!!!</p>
             </div>
          </div>
       </div>
+
+
    </section>
 
    <section class="carousel py-5">
@@ -164,7 +166,7 @@ if(isset($_POST['add_to_cart'])){
                </div> 
                <div class="row d-flex px-3 my-auto" style="justify-content: space-between">
                   <div class="font-weight-bold text-capitalize my-2" style="font-size: 1.5rem;"><?php echo $fetch_products['name']; ?></div>
-                  <div class="font-weight-bold font-size-20 text-white my-auto text-danger "><?php echo $fetch_products['price']; ?><span class="pl-1">VND</span></div>
+                  <div class="font-weight-bold font-size-20 text-white my-auto text-danger ">Price: <?php echo $fetch_products['price']; ?><span class="pl-1">VND</span></div>
                </div>
                <input type="number" min="1" name="product_quantity" value="1" class="px-2 py-2 border rounded border-dark mb-3">
                <?php
