@@ -75,7 +75,7 @@ if(isset($_POST['send'])){
       <div class="container d-flex justify-content-center my-5">
          <form action="" method="post" class=" card border-0 col-lg-6 d-flex justify-content-center p-4 font-rubik ">
             <h4 class="text-capitalize text-center font-weight-bold mb-4">Feedback !</h3>
-            <div class="col p-0 d-flex" style="justify-content: space-between">
+            <div class="col p-0 d-flex flex-wrap" style="justify-content: space-between">
                <input type="text" name="name" required placeholder="Name" class="px-2 py-2 border rounded border-dark mb-3 col-md-5">
                <input type="number" name="number" required placeholder="Number" class="px-2 py-2 border rounded border-dark mb-3 col-md-6">
             </div>
